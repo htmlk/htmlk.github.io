@@ -1,0 +1,678 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="邝光前, htmlk,小k博客" />
+
+
+
+
+
+  <link rel="alternate" href="/htmlk.cn" title="小k博客" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="一、安装 gulp使用git全局安装
+1$ npm install --global gulp
+作为项目的开发依赖（devDependencies）安装：12$ npm install --save-dev gulp//(或者npm i gulp -D)
+在项目根目录下创建一个名为 gulpfile.js 的文件：12345678910//引入gulpvar gulp = require(&apos;gul">
+<meta property="og:type" content="article">
+<meta property="og:title" content="gulp+webpack的使用">
+<meta property="og:url" content="http://htmlk.com/2013/10/15/gulp+webpack的使用/index.html">
+<meta property="og:site_name" content="小k博客">
+<meta property="og:description" content="一、安装 gulp使用git全局安装
+1$ npm install --global gulp
+作为项目的开发依赖（devDependencies）安装：12$ npm install --save-dev gulp//(或者npm i gulp -D)
+在项目根目录下创建一个名为 gulpfile.js 的文件：12345678910//引入gulpvar gulp = require(&apos;gul">
+<meta property="og:updated_time" content="2016-10-14T03:36:33.381Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="gulp+webpack的使用">
+<meta name="twitter:description" content="一、安装 gulp使用git全局安装
+1$ npm install --global gulp
+作为项目的开发依赖（devDependencies）安装：12$ npm install --save-dev gulp//(或者npm i gulp -D)
+在项目根目录下创建一个名为 gulpfile.js 的文件：12345678910//引入gulpvar gulp = require(&apos;gul">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"right","display":"always"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://htmlk.com/2013/10/15/gulp+webpack的使用/"/>
+
+  <title> gulp+webpack的使用 | 小k博客 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-right page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">小k博客</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">前端技术分享</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                gulp+webpack的使用
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2013-10-15T20:21:02+08:00" content="2013-10-15">
+              2013-10-15
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/前端框架/" itemprop="url" rel="index">
+                    <span itemprop="name">前端框架</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="一、安装-gulp"><a href="#一、安装-gulp" class="headerlink" title="一、安装 gulp"></a>一、安装 gulp</h2><p>使用git全局安装</p>
+<figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ <span class="built_in">npm</span> install --<span class="built_in">global</span> gulp</div></pre></td></tr></table></figure>
+<p>作为项目的开发依赖（devDependencies）安装：<br><figure class="highlight q"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ npm install --<span class="built_in">save</span>-<span class="built_in">dev</span> gulp</div><div class="line"><span class="comment">//(或者npm i gulp -D)</span></div></pre></td></tr></table></figure></p>
+<p>在项目根目录下创建一个名为 gulpfile.js 的文件：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//引入gulp</span></div><div class="line"><span class="keyword">var</span> gulp = <span class="built_in">require</span>(<span class="string">'gulp'</span>);</div><div class="line"><span class="comment">//default  是默认</span></div><div class="line">gulp.task(<span class="string">'default'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="comment">// 将你的的任务代码放在这</span></div><div class="line">&#125;);</div><div class="line"><span class="comment">//copy-index任务</span></div><div class="line">gulp.task(<span class="string">'copy-index'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="comment">// 将你的的任务代码放在这</span></div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+<p>在git上运行gulp<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//defult</span></div><div class="line">$ gulp</div><div class="line"></div><div class="line"><span class="comment">//copy-index</span></div><div class="line">$ gulp copy-index</div></pre></td></tr></table></figure></p>
+<p>##二、项目依赖的包<br>首先可以查看一下package.json文件内容<br><figure class="highlight json"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  <span class="attr">"name"</span>: <span class="string">"gulpwebpack"</span>,</div><div class="line">  <span class="attr">"version"</span>: <span class="string">"1.0.0"</span>,</div><div class="line">  <span class="attr">"description"</span>: <span class="string">""</span>,</div><div class="line">  <span class="attr">"main"</span>: <span class="string">"index.js"</span>,</div><div class="line">  <span class="attr">"scripts"</span>: &#123;</div><div class="line">    <span class="attr">"test"</span>: <span class="string">"echo \"Error: no test specified\" &amp;&amp; exit 1"</span></div><div class="line">  &#125;,</div><div class="line">  <span class="attr">"author"</span>: <span class="string">""</span>,</div><div class="line">  <span class="attr">"license"</span>: <span class="string">"ISC"</span>,</div><div class="line">  <span class="attr">"devDependencies"</span>: &#123;</div><div class="line">    <span class="attr">"gulp"</span>: <span class="string">"^3.9.1"</span>,</div><div class="line">    <span class="attr">"gulp-minify-css"</span>: <span class="string">"^1.2.4"</span>,</div><div class="line">    <span class="attr">"gulp-rev"</span>: <span class="string">"^7.1.2"</span>,</div><div class="line">    <span class="attr">"gulp-rev-collector"</span>: <span class="string">"^1.0.5"</span>,</div><div class="line">    <span class="attr">"gulp-sass"</span>: <span class="string">"^2.3.2"</span>,</div><div class="line">    <span class="attr">"gulp-sequence"</span>: <span class="string">"^0.4.6"</span>,</div><div class="line">    <span class="attr">"gulp-uglify"</span>: <span class="string">"^2.0.0"</span>,</div><div class="line">    <span class="attr">"gulp-webpack"</span>: <span class="string">"^1.5.0"</span>,</div><div class="line">    <span class="attr">"gulp-webserver"</span>: <span class="string">"^0.9.1"</span>,</div><div class="line">    <span class="attr">"imports-loader"</span>: <span class="string">"^0.6.5"</span>,</div><div class="line">    <span class="attr">"vinyl-named"</span>: <span class="string">"^1.1.0"</span></div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>新建一个文件夹gulp，新建package.json，复制内容，使用git 安装<br><figure class="highlight elixir"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$ </span>git i</div></pre></td></tr></table></figure></p>
+<p>在gulpfile.js 需要引入以下文件（就是刚才安装的组件）<br><figure class="highlight oxygene"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//引入gulp工具</span></div><div class="line"><span class="keyword">var</span> gulp = <span class="keyword">require</span>(<span class="string">'gulp'</span>);</div><div class="line"></div><div class="line"><span class="comment">//引入gulp-webserver</span></div><div class="line"><span class="keyword">var</span> webserver = <span class="keyword">require</span>(<span class="string">'gulp-webserver'</span>);</div><div class="line"></div><div class="line"><span class="comment">//引入css预处理 的模块</span></div><div class="line"><span class="keyword">var</span> minifyCSS = <span class="keyword">require</span>(<span class="string">'gulp-minify-css'</span>)</div><div class="line"><span class="keyword">var</span> sass = <span class="keyword">require</span>(<span class="string">'gulp-sass'</span>);</div><div class="line"></div><div class="line"><span class="comment">//引入js 的模块 js文件模块 vinyl-named js 压缩模块</span></div><div class="line"><span class="keyword">var</span> named = <span class="keyword">require</span>(<span class="string">'vinyl-named'</span>);</div><div class="line"><span class="keyword">var</span> webpack = <span class="keyword">require</span>(<span class="string">'gulp-webpack'</span>);</div><div class="line"><span class="keyword">var</span> uglify = <span class="keyword">require</span>(<span class="string">'gulp-uglify'</span>);</div><div class="line"><span class="comment">//引入fs url模块哦</span></div><div class="line"><span class="keyword">var</span> fs = <span class="keyword">require</span>(<span class="string">'fs'</span>);</div><div class="line"><span class="keyword">var</span> url = <span class="keyword">require</span>(<span class="string">'url'</span>);</div><div class="line"><span class="comment">//引入rev revCollector 模块 版本号控制</span></div><div class="line"><span class="keyword">var</span> rev=<span class="keyword">require</span>(<span class="string">'gulp-rev'</span>);</div><div class="line"><span class="keyword">var</span> revCollector=<span class="keyword">require</span>(<span class="string">'gulp-rev-collector'</span>);</div><div class="line"><span class="comment">//引入glup</span></div><div class="line"><span class="keyword">var</span> <span class="keyword">sequence</span>=<span class="keyword">require</span>(<span class="string">'gulp-sequence'</span>);</div></pre></td></tr></table></figure></p>
+<h2 id="三、下面看gulp工程化的具体使用"><a href="#三、下面看gulp工程化的具体使用" class="headerlink" title="三、下面看gulp工程化的具体使用"></a>三、下面看gulp工程化的具体使用</h2><p>首先是webpack搭建一个服务,使用mock数据（以下代码mock数据的访问地址是：localhost：8080/api/order；在ajax使用的时候就用这个地址）<br><figure class="highlight qml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line">gulp.task(<span class="string">'webserver'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    gulp.src(<span class="string">'./'</span>)</div><div class="line">        .pipe(webserver(&#123;</div><div class="line">            <span class="attribute">host</span>: <span class="string">'localhost'</span>,<span class="comment">//地址</span></div><div class="line">            <span class="attribute">port</span>: <span class="number">8080</span>,<span class="comment">//端口</span></div><div class="line">            <span class="attribute">directoryListing</span>: &#123;</div><div class="line">                <span class="attribute">enable</span>: <span class="literal">true</span>,<span class="comment">//是否显示文件夹</span></div><div class="line">                <span class="attribute">path</span>: <span class="string">'./'</span></div><div class="line">            &#125;,</div><div class="line">            <span class="attribute">livereload</span>: <span class="literal">true</span>,</div><div class="line">            <span class="comment">//mock 数据</span></div><div class="line">            <span class="attribute">middleware</span>: <span class="function"><span class="keyword">function</span>(<span class="params">req, res, next</span>) </span>&#123;</div><div class="line">                <span class="built_in">var</span> urlObj=<span class="built_in">url</span>.parse(req.url,<span class="literal">true</span>);</div><div class="line">                <span class="keyword">switch</span> (urlObj.pathname) &#123;</div><div class="line">                  <span class="keyword">case</span> <span class="string">'/api/order'</span>:</div><div class="line">                  res.setHeader(<span class="string">'Content-Type'</span>,<span class="string">'application/json'</span>);</div><div class="line">                    fs.readFile(<span class="string">'./mock/list.json'</span>,<span class="function"><span class="keyword">function</span>(<span class="params">err,data</span>)</span>&#123;</div><div class="line">                      res.end(data);</div><div class="line">                    &#125;)</div><div class="line">                    <span class="keyword">return</span>;</div><div class="line">                  <span class="keyword">case</span> <span class="string">'/api/users'</span>:</div><div class="line">                  <span class="comment">//user</span></div><div class="line">                    <span class="keyword">return</span>;</div><div class="line">                  <span class="keyword">case</span> <span class="string">'/api/cart'</span>:</div><div class="line">                  <span class="comment">//cart</span></div><div class="line">                    <span class="keyword">return</span>;</div><div class="line">                &#125;</div><div class="line">                next();</div><div class="line">            &#125;</div><div class="line">        &#125;));</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+<p>css与js的模块化<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//css模块化</span></div><div class="line"><span class="keyword">var</span> cssFiles = [</div><div class="line">    <span class="string">'./src/styles/app.scss'</span></div><div class="line">];</div><div class="line">gulp.task(<span class="string">'scss'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    gulp.src(cssFiles)</div><div class="line">        .pipe(sass().on(<span class="string">'error'</span>, sass.logError))</div><div class="line">        .pipe(minifyCSS())</div><div class="line">        .pipe(gulp.dest(<span class="string">'./bulid/prd/styles/'</span>));</div><div class="line">&#125;);</div><div class="line"><span class="comment">//js模块化</span></div><div class="line"><span class="keyword">var</span> jsFiles = [</div><div class="line">    <span class="string">'./src/scripts/app.js'</span></div><div class="line">];</div><div class="line">gulp.task(<span class="string">'packjs'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">        gulp.src(jsFiles)</div><div class="line">            .pipe(named())</div><div class="line">            .pipe(webpack(&#123;</div><div class="line">                <span class="attr">output</span>: &#123;</div><div class="line">                    <span class="attr">filename</span>: <span class="string">'[name].js'</span></div><div class="line">                &#125;,</div><div class="line">                <span class="attr">module</span>: &#123;</div><div class="line">                    <span class="attr">loaders</span>: [&#123;</div><div class="line">                        <span class="attr">test</span>: <span class="regexp">/\.js$/</span>,</div><div class="line">                        <span class="attr">loader</span>: <span class="string">'imports?define=&gt;false'</span></div><div class="line">                    &#125;]</div><div class="line">                &#125;</div><div class="line">            &#125;))</div><div class="line">            .pipe(uglify().on(<span class="string">'error'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">err</span>) </span>&#123;</div><div class="line">                <span class="built_in">console</span>.log(<span class="string">'\x07'</span>, err.linNumber, err.message);</div><div class="line">                <span class="keyword">return</span> <span class="keyword">this</span>.end;</div><div class="line">            &#125;))</div><div class="line">            .pipe(gulp.dest(<span class="string">'./bulid/prd/scripts/'</span>));</div><div class="line">    &#125;)</div></pre></td></tr></table></figure></p>
+<p>版本号控制（）<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//版本号控制</span></div><div class="line"><span class="keyword">var</span> cssDistFiles=[</div><div class="line">  <span class="string">'./bulid/prd/styles/app.css'</span></div><div class="line">];</div><div class="line"><span class="keyword">var</span> jsDistFiles=[</div><div class="line">  <span class="string">'./bulid/prd/scripts/app.js'</span></div><div class="line">]</div><div class="line"><span class="comment">//生成css，js版本号</span></div><div class="line">gulp.task(<span class="string">'ver'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">  gulp.src(cssDistFiles)</div><div class="line">      .pipe(rev())</div><div class="line">      .pipe(gulp.dest(<span class="string">'./bulid/prd/styles/'</span>))</div><div class="line">      .pipe(rev.manifest())</div><div class="line">      .pipe(gulp.dest(<span class="string">'./bulid/ver/styles/'</span>));</div><div class="line">  gulp.src(jsDistFiles)</div><div class="line">      .pipe(rev())</div><div class="line">      .pipe(gulp.dest(<span class="string">'./bulid/prd/scripts/'</span>))</div><div class="line">      .pipe(rev.manifest())</div><div class="line">      .pipe(gulp.dest(<span class="string">'./bulid/ver/scripts/'</span>));</div><div class="line">&#125;);</div><div class="line"><span class="comment">//index.html与带有版本号的css，js的关联</span></div><div class="line">gulp.task(<span class="string">'html'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">  gulp.src([<span class="string">'./bulid/ver/**/*'</span>,<span class="string">'./bulid/*.html'</span>])</div><div class="line">      .pipe(revCollector())</div><div class="line">      .pipe(gulp.dest(<span class="string">'./bulid/'</span>));</div><div class="line">&#125;)</div><div class="line"><span class="comment">//将以上操作添加到min（sequence解决执行任务并行问题，使它按顺序执行）</span></div><div class="line">gulp.task(<span class="string">'min'</span>,sequence(<span class="string">'copy-index'</span>,<span class="string">'ver'</span>,<span class="string">'html'</span>),<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">  <span class="built_in">console</span>.log(<span class="string">"!~~~~~~min~~~~~~~^_^"</span>);</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+<p>拷贝index.html ,images,fonts等公用资源到build文件夹<br><figure class="highlight actionscript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//拷贝index.html 到build文件夹</span></div><div class="line">gulp.task(<span class="string">'copy-index'</span>, <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>&#123;</div><div class="line">    gulp.src(<span class="string">'./index.html'</span>)</div><div class="line">        .pipe(gulp.dest(<span class="string">'./bulid'</span>));</div><div class="line">&#125;);</div><div class="line"></div><div class="line"><span class="comment">//拷贝images 到build文件夹</span></div><div class="line"><span class="comment">//单个*.&#123;jpg,JPG,bmp,gif&#125; 多个*.* 全部（包括文件夹）/**/*</span></div><div class="line">gulp.task(<span class="string">'copy-images'</span>, <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>&#123;</div><div class="line">        gulp.src(<span class="string">'./images/**/*'</span>)</div><div class="line">            .pipe(gulp.dest(<span class="string">'./bulid/images/'</span>));</div><div class="line">    &#125;)</div></pre></td></tr></table></figure></p>
+<p>侦测文件变化（当css,js,html,images等文件发生变化时变化）<br><figure class="highlight less"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//侦测文件变化</span></div><div class="line"><span class="selector-tag">gulp</span><span class="selector-class">.task</span>(<span class="string">'watch'</span>, function() &#123;</div><div class="line">        <span class="selector-tag">gulp</span><span class="selector-class">.watch</span>(<span class="string">'./index.html'</span>, [<span class="string">'copy-index'</span>]);</div><div class="line">        <span class="selector-tag">gulp</span><span class="selector-class">.watch</span>(<span class="string">'./images/**/*'</span>, [<span class="string">'copy-images'</span>]);</div><div class="line">        <span class="selector-tag">gulp</span><span class="selector-class">.watch</span>(<span class="string">'./src/styles/*&#123;scss,css&#125;'</span>, [<span class="string">'scss'</span>,<span class="string">'min'</span>]);</div><div class="line">        <span class="selector-tag">gulp</span><span class="selector-class">.watch</span>(<span class="string">'./src/scripts/*.js'</span>, [<span class="string">'packjs'</span>,<span class="string">'min'</span>]);</div><div class="line">    &#125;)</div></pre></td></tr></table></figure></p>
+<p> 配置default 任务 执行任务队列<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//配置default 任务 执行任务队列</span></div><div class="line"></div><div class="line">gulp.task(<span class="string">'default'</span>, [<span class="string">'watch'</span>, <span class="string">'webserver'</span>], <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">"^_^~~~~~~~~~ok"</span>);</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+<div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
+    <img id="wechat_subscriber_qcode" src="http://7xn9on.com1.z0.glb.clouddn.com/weixin.jpg" alt="邝光前 wechat" style="width: 200px; max-width: 100%;"/>
+    <div>扫一扫微信</div>
+</div>
+
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="http://7xn9on.com1.z0.glb.clouddn.com/weixin.jpg" alt="邝光前 WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="http://7xn9on.com1.z0.glb.clouddn.com/qq.jpg" alt="邝光前 Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2013/08/03/css中单位px、pt、em和rem的区别/" rel="next" title="css中单位px、pt、em和rem的区别">
+                <i class="fa fa-chevron-left"></i> css中单位px、pt、em和rem的区别
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2014/04/09/Gulp入门教程/" rel="prev" title="Gulp入门教程">
+                Gulp入门教程 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="http://7xn9on.com1.z0.glb.clouddn.com/avtar.jpg"
+               alt="邝光前" />
+          <p class="site-author-name" itemprop="name">邝光前</p>
+          <p class="site-description motion-element" itemprop="description">html5,css3,nodejs</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">15</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-name">分类</span>
+              
+            </div>
+          
+
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/htmlk.cn" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/htmlk" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://htmlk.cn" target="_blank" title="官网">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  官网
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/htmlk" target="_blank" title="weibo">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  weibo
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/htmlk" target="_blank" title="blog">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  blog
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              友情链接
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://dushao103500.github.io/" title="杜少博客" target="_blank">杜少博客</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、安装-gulp"><span class="nav-number">1.</span> <span class="nav-text">一、安装 gulp</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三、下面看gulp工程化的具体使用"><span class="nav-number">2.</span> <span class="nav-text">三、下面看gulp工程化的具体使用</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2013 - 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">邝光前</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

@@ -1,0 +1,981 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="邝光前, htmlk,小k博客" />
+
+
+
+
+
+  <link rel="alternate" href="/htmlk.cn" title="小k博客" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="1、使用 typeof bar === “object” 判断 bar 是不是一个对象有神马潜在的弊端？如何避免这种弊端？使用 typeof 的弊端是显而易见的(这种弊端同使用 instanceof)：
+let obj = {};
+let arr = [];
+
+console.log(typeof obj === &amp;apos;object&amp;apos;);  //true
+console.log(t">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Javascript你必须要知道的面试题">
+<meta property="og:url" content="http://htmlk.com/2012/11/01/javascript你必须要知道的面试题/index.html">
+<meta property="og:site_name" content="小k博客">
+<meta property="og:description" content="1、使用 typeof bar === “object” 判断 bar 是不是一个对象有神马潜在的弊端？如何避免这种弊端？使用 typeof 的弊端是显而易见的(这种弊端同使用 instanceof)：
+let obj = {};
+let arr = [];
+
+console.log(typeof obj === &amp;apos;object&amp;apos;);  //true
+console.log(t">
+<meta property="og:image" content="https://raw.githubusercontent.com/dushao103500/You-must-know/master/images/15_3.png">
+<meta property="og:updated_time" content="2016-09-29T02:50:59.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Javascript你必须要知道的面试题">
+<meta name="twitter:description" content="1、使用 typeof bar === “object” 判断 bar 是不是一个对象有神马潜在的弊端？如何避免这种弊端？使用 typeof 的弊端是显而易见的(这种弊端同使用 instanceof)：
+let obj = {};
+let arr = [];
+
+console.log(typeof obj === &amp;apos;object&amp;apos;);  //true
+console.log(t">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/dushao103500/You-must-know/master/images/15_3.png">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"right","display":"always"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://htmlk.com/2012/11/01/javascript你必须要知道的面试题/"/>
+
+  <title> Javascript你必须要知道的面试题 | 小k博客 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-right page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">小k博客</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">前端技术分享</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Javascript你必须要知道的面试题
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2012-11-01T20:10:33+08:00" content="2012-11-01">
+              2012-11-01
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Javascript编程知识/" itemprop="url" rel="index">
+                    <span itemprop="name">Javascript编程知识</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="1、使用-typeof-bar-“object”-判断-bar-是不是一个对象有神马潜在的弊端？如何避免这种弊端？"><a href="#1、使用-typeof-bar-“object”-判断-bar-是不是一个对象有神马潜在的弊端？如何避免这种弊端？" class="headerlink" title="1、使用 typeof bar === “object” 判断 bar 是不是一个对象有神马潜在的弊端？如何避免这种弊端？"></a>1、使用 typeof bar === “object” 判断 bar 是不是一个对象有神马潜在的弊端？如何避免这种弊端？</h3><p>使用 typeof 的弊端是显而易见的(这种弊端同使用 instanceof)：</p>
+<pre><code>let obj = {};
+let arr = [];
+
+console.log(typeof obj === &apos;object&apos;);  //true
+console.log(typeof arr === &apos;object&apos;);  //true
+console.log(typeof null === &apos;object&apos;);  //true
+</code></pre><p>从上面的输出结果可知，typeof bar === “object” 并不能准确判断 bar 就是一个 Object。可以通过 <code>Object.prototype.toString.call(bar) === &quot;[object Object]&quot;</code> 来避免这种弊端：</p>
+<pre><code>let obj = {};
+let arr = [];
+
+console.log(Object.prototype.toString.call(obj));  //[object Object]
+console.log(Object.prototype.toString.call(arr));  //[object Array]
+console.log(Object.prototype.toString.call(null));  //[object Null]
+</code></pre><p>另外，为了珍爱生命，请远离 ==：<br>珍爱生命</p>
+<p>而 [] === false 是返回 false 的。</p>
+<h3 id="2、下面的代码会在-console-输出神马？为什么？"><a href="#2、下面的代码会在-console-输出神马？为什么？" class="headerlink" title="2、下面的代码会在 console 输出神马？为什么？"></a>2、下面的代码会在 console 输出神马？为什么？</h3><pre><code>(function(){
+  var a = b = 3;
+})();
+
+console.log(&quot;a defined? &quot; + (typeof a !== &apos;undefined&apos;));   
+console.log(&quot;b defined? &quot; + (typeof b !== &apos;undefined&apos;));
+</code></pre><p>这跟变量作用域有关，输出换成下面的：</p>
+<pre><code>console.log(b); //3
+console,log(typeof a); //undefined
+</code></pre><p>拆解一下自执行函数中的变量赋值：</p>
+<pre><code>b = 3;
+var a = b;
+</code></pre><p>所以 b 成了全局变量，而 a 是自执行函数的一个局部变量。</p>
+<h3 id="3、下面的代码会在-console-输出神马？为什么？"><a href="#3、下面的代码会在-console-输出神马？为什么？" class="headerlink" title="3、下面的代码会在 console 输出神马？为什么？"></a>3、下面的代码会在 console 输出神马？为什么？</h3><pre><code>var myObject = {
+    foo: &quot;bar&quot;,
+    func: function() {
+        var self = this;
+        console.log(&quot;outer func:  this.foo = &quot; + this.foo);
+        console.log(&quot;outer func:  self.foo = &quot; + self.foo);
+        (function() {
+            console.log(&quot;inner func:  this.foo = &quot; + this.foo);
+            console.log(&quot;inner func:  self.foo = &quot; + self.foo);
+        }());
+    }
+};
+myObject.func();
+</code></pre><p>第一个和第二个的输出不难判断，在 ES6 之前，JavaScript 只有函数作用域，所以 func 中的 IIFE 有自己的独立作用域，并且它能访问到外部作用域中的 self，所以第三个输出会报错，因为 this 在可访问到的作用域内是 undefined，第四个输出是 bar。如果你知道闭包，也很容易解决的：</p>
+<pre><code>(function(test) {
+            console.log(&quot;inner func:  this.foo = &quot; + test.foo);  //&apos;bar&apos;
+            console.log(&quot;inner func:  self.foo = &quot; + self.foo);
+}(self));
+</code></pre><p>如果对闭包不熟悉，可以戳此：从作用域链谈闭包</p>
+<h3 id="4、将-JavaScript-代码包含在一个函数块中有神马意思呢？为什么要这么做？"><a href="#4、将-JavaScript-代码包含在一个函数块中有神马意思呢？为什么要这么做？" class="headerlink" title="4、将 JavaScript 代码包含在一个函数块中有神马意思呢？为什么要这么做？"></a>4、将 JavaScript 代码包含在一个函数块中有神马意思呢？为什么要这么做？</h3><p>换句话说，为什么要用立即执行函数表达式（Immediately-Invoked Function Expression）。</p>
+<p>IIFE 有两个比较经典的使用场景，一是类似于在循环中定时输出数据项，二是类似于 JQuery/Node 的插件和模块开发。</p>
+<pre><code>for(var i = 0; i &lt; 5; i++) {
+    setTimeout(function() {
+        console.log(i);  
+    }, 1000);
+}
+</code></pre><p>上面的输出并不是你以为的0，1，2，3，4，而输出的全部是5，这时 IIFE 就能有用了：</p>
+<pre><code>for(var i = 0; i &lt; 5; i++) {
+    (function(i) {
+      setTimeout(function() {
+        console.log(i);  
+      }, 1000);
+    })(i)
+}
+</code></pre><p>而在 JQuery/Node 的插件和模块开发中，为避免变量污染，也是一个大大的 IIFE：</p>
+<pre><code>(function($) { 
+        //代码
+ } )(jQuery);
+</code></pre><h3 id="5、在严格模式-‘use-strict’-下进行-JavaScript-开发有神马好处？"><a href="#5、在严格模式-‘use-strict’-下进行-JavaScript-开发有神马好处？" class="headerlink" title="5、在严格模式(‘use strict’)下进行 JavaScript 开发有神马好处？"></a>5、在严格模式(‘use strict’)下进行 JavaScript 开发有神马好处？</h3><p>消除Javascript语法的一些不合理、不严谨之处，减少一些怪异行为;<br>消除代码运行的一些不安全之处，保证代码运行的安全；<br>提高编译器效率，增加运行速度；<br>为未来新版本的Javascript做好铺垫。</p>
+<h3 id="6、下面两个函数的返回值是一样的吗？为什么？"><a href="#6、下面两个函数的返回值是一样的吗？为什么？" class="headerlink" title="6、下面两个函数的返回值是一样的吗？为什么？"></a>6、下面两个函数的返回值是一样的吗？为什么？</h3><pre><code>function foo1()
+{
+  return {
+      bar: &quot;hello&quot;
+  };
+}
+
+function foo2()
+{
+  return
+  {
+      bar: &quot;hello&quot;
+  };
+}
+</code></pre><p>在编程语言中，基本都是使用分号（;）将语句分隔开，这可以增加代码的可读性和整洁性。而在JS中，如若语句各占独立一行，通常可以省略语句间的分号（;），JS 解析器会根据能否正常编译来决定是否自动填充分号：</p>
+<pre><code>var test = 1 + 2；
+console.log(test);  //3
+</code></pre><p>在上述情况下，为了正确解析代码，就不会自动填充分号了，但是对于 return 、break、continue 等语句，如果后面紧跟换行，解析器一定会自动在后面填充分号(;)，所以上面的第二个函数就变成了这样：</p>
+<pre><code>function foo2()
+{
+  return;
+  {
+      bar: &quot;hello&quot;
+  };
+}
+</code></pre><p>所以第二个函数是返回 undefined。</p>
+<h3 id="7、神马是-NaN，它的类型是神马？怎么测试一个值是否等于-NaN"><a href="#7、神马是-NaN，它的类型是神马？怎么测试一个值是否等于-NaN" class="headerlink" title="7、神马是 NaN，它的类型是神马？怎么测试一个值是否等于 NaN?"></a>7、神马是 NaN，它的类型是神马？怎么测试一个值是否等于 NaN?</h3><p>NaN 是 Not a Number 的缩写，JavaScript 的一种特殊数值，其类型是 Number，可以通过 isNaN(param) 来判断一个值是否是 NaN：</p>
+<pre><code>console.log(isNaN(NaN)); //true
+console.log(isNaN(23)); //false
+console.log(isNaN(&apos;ds&apos;)); //true
+console.log(isNaN(&apos;32131sdasd&apos;)); //true
+console.log(NaN === NaN); //false
+console.log(NaN === undefined); //false
+console.log(undefined === undefined); //false
+console.log(typeof NaN); //number
+console.log(Object.prototype.toString.call(NaN)); //[object Number]
+</code></pre><p>ES6 中，isNaN() 成为了 Number 的静态方法：Number.isNaN().</p>
+<h3 id="8、解释一下下面代码的输出"><a href="#8、解释一下下面代码的输出" class="headerlink" title="8、解释一下下面代码的输出"></a>8、解释一下下面代码的输出</h3><pre><code>console.log(0.1 + 0.2);   //0.30000000000000004
+console.log(0.1 + 0.2 == 0.3);  //false
+</code></pre><p>JavaScript 中的 number 类型就是浮点型，JavaScript 中的浮点数采用IEEE-754 格式的规定，这是一种二进制表示法，可以精确地表示分数，比如1/2，1/8，1/1024，每个浮点数占64位。但是，二进制浮点数表示法并不能精确的表示类似0.1这样 的简单的数字，会有舍入误差。</p>
+<p>由于采用二进制，JavaScript 也不能有限表示 1/10、1/2 等这样的分数。在二进制中，1/10(0.1)被表示为 0.00110011001100110011…… 注意 0011 是无限重复的，这是舍入误差造成的，所以对于 0.1 + 0.2 这样的运算，操作数会先被转成二进制，然后再计算：</p>
+<pre><code>0.1 =&gt; 0.0001 1001 1001 1001…（无限循环）
+0.2 =&gt; 0.0011 0011 0011 0011…（无限循环）
+</code></pre><p>双精度浮点数的小数部分最多支持 52 位，所以两者相加之后得到这么一串 0.0100110011001100110011001100110011001100…因浮点数小数位的限制而截断的二进制数字，这时候，再把它转换为十进制，就成了 0.30000000000000004。</p>
+<p>对于保证浮点数计算的正确性，有两种常见方式：</p>
+<p>一是先升幂再降幂：</p>
+<pre><code>function add(num1, num2){
+  let r1, r2, m;
+  r1 = (&apos;&apos;+num1).split(&apos;.&apos;)[1].length;
+  r2 = (&apos;&apos;+num2).split(&apos;.&apos;)[1].length;
+
+  m = Math.pow(10,Math.max(r1,r2));
+  return (num1 * m + num2 * m) / m;
+}
+console.log(add(0.1,0.2));   //0.3
+console.log(add(0.15,0.2256)); //0.3756
+</code></pre><p>二是是使用内置的 toPrecision() 和 toFixed() 方法，注意，方法的返回值字符串。</p>
+<pre><code>function add(x, y) {
+    return x.toPrecision() + y.toPrecision()
+}
+console.log(add(0.1,0.2));  //&quot;0.10.2&quot;
+</code></pre><h3 id="9、实现函数-isInteger-x-来判断-x-是否是整数"><a href="#9、实现函数-isInteger-x-来判断-x-是否是整数" class="headerlink" title="9、实现函数 isInteger(x) 来判断 x 是否是整数"></a>9、实现函数 isInteger(x) 来判断 x 是否是整数</h3><p>可以将 x 转换成10进制，判断和本身是不是相等即可：</p>
+<pre><code>function isInteger(x) { 
+    return parseInt(x, 10) === x; 
+}
+</code></pre><p>ES6 对数值进行了扩展，提供了静态方法 isInteger() 来判断参数是否是整数：</p>
+<pre><code>Number.isInteger(25) // true
+Number.isInteger(25.0) // true
+Number.isInteger(25.1) // false
+Number.isInteger(&quot;15&quot;) // false
+Number.isInteger(true) // false
+</code></pre><p>JavaScript能够准确表示的整数范围在 -2^53 到 2^53 之间（不含两个端点），超过这个范围，无法精确表示这个值。ES6 引入了Number.MAX_SAFE_INTEGER 和 Number.MIN_SAFE_INTEGER这两个常量，用来表示这个范围的上下限，并提供了 Number.isSafeInteger() 来判断整数是否是安全型整数。</p>
+<h3 id="10、在下面的代码中，数字-1-4-会以什么顺序输出？为什么会这样输出？"><a href="#10、在下面的代码中，数字-1-4-会以什么顺序输出？为什么会这样输出？" class="headerlink" title="10、在下面的代码中，数字 1-4 会以什么顺序输出？为什么会这样输出？"></a>10、在下面的代码中，数字 1-4 会以什么顺序输出？为什么会这样输出？</h3><pre><code>(function() {
+    console.log(1); 
+    setTimeout(function(){console.log(2)}, 1000); 
+    setTimeout(function(){console.log(3)}, 0); 
+    console.log(4);
+})();
+</code></pre><p>这个就不多解释了，主要是 JavaScript 的定时机制和时间循环，不要忘了，JavaScript 是单线程的。详解可以参考 从setTimeout谈JavaScript运行机制。</p>
+<h3 id="11、写一个少于-80-字符的函数，判断一个字符串是不是回文字符串"><a href="#11、写一个少于-80-字符的函数，判断一个字符串是不是回文字符串" class="headerlink" title="11、写一个少于 80 字符的函数，判断一个字符串是不是回文字符串"></a>11、写一个少于 80 字符的函数，判断一个字符串是不是回文字符串</h3><pre><code>function isPalindrome(str) {
+    str = str.replace(/\W/g, &apos;&apos;).toLowerCase();
+    return (str == str.split(&apos;&apos;).reverse().join(&apos;&apos;));
+}
+</code></pre><p>这个题我在 codewars 上碰到过，并收录了一些不错的解决方式，可以戳这里：Palindrome For Your Dome</p>
+<h3 id="12、写一个按照下面方式调用都能正常工作的-sum-方法"><a href="#12、写一个按照下面方式调用都能正常工作的-sum-方法" class="headerlink" title="12、写一个按照下面方式调用都能正常工作的 sum 方法"></a>12、写一个按照下面方式调用都能正常工作的 sum 方法</h3><pre><code>console.log(sum(2,3));   // Outputs 5
+console.log(sum(2)(3));  // Outputs 5
+</code></pre><p>针对这个题，可以判断参数个数来实现：</p>
+<pre><code>function sum() {
+  var fir = arguments[0];
+  if(arguments.length === 2) {
+    return arguments[0] + arguments[1]
+  } else {
+    return function(sec) {
+       return fir + sec;
+    }
+  }
+
+}
+</code></pre><h3 id="13、根据下面的代码片段回答后面的问题"><a href="#13、根据下面的代码片段回答后面的问题" class="headerlink" title="13、根据下面的代码片段回答后面的问题"></a>13、根据下面的代码片段回答后面的问题</h3><pre><code>for (var i = 0; i &lt; 5; i++) {
+  var btn = document.createElement(&apos;button&apos;);
+  btn.appendChild(document.createTextNode(&apos;Button &apos; + i));
+  btn.addEventListener(&apos;click&apos;, function(){ console.log(i); });
+  document.body.appendChild(btn);
+}
+</code></pre><p>1、点击 Button 4，会在控制台输出什么？<br>2、给出一种符合预期的实现方式</p>
+<p>答：1、点击5个按钮中的任意一个，都是输出5<br>2、参考 IIFE。</p>
+<h3 id="14、下面的代码会输出什么？为什么？"><a href="#14、下面的代码会输出什么？为什么？" class="headerlink" title="14、下面的代码会输出什么？为什么？"></a>14、下面的代码会输出什么？为什么？</h3><pre><code>var arr1 = &quot;john&quot;.split(&apos;&apos;); j o h n
+var arr2 = arr1.reverse(); n h o j
+var arr3 = &quot;jones&quot;.split(&apos;&apos;); j o n e s
+arr2.push(arr3);
+console.log(&quot;array 1: length=&quot; + arr1.length + &quot; last=&quot; + arr1.slice(-1));
+console.log(&quot;array 2: length=&quot; + arr2.length + &quot; last=&quot; + arr2.slice(-1));
+</code></pre><p>会输出什么呢？你运行下就知道了，可能会在你的意料之外。</p>
+<p>MDN 上对于 reverse() 的描述是酱紫的：</p>
+<blockquote>
+<p>Description<br>The reverse method transposes the elements of the calling array object in place, mutating the array, and returning a reference to the array.</p>
+</blockquote>
+<p>reverse() 会改变数组本身，并返回原数组的引用。</p>
+<p>slice 的用法请参考：slice</p>
+<h3 id="15、下面的代码会输出什么？为什么？"><a href="#15、下面的代码会输出什么？为什么？" class="headerlink" title="15、下面的代码会输出什么？为什么？"></a>15、下面的代码会输出什么？为什么？</h3><pre><code>console.log(1 +  &quot;2&quot; + &quot;2&quot;);
+console.log(1 +  +&quot;2&quot; + &quot;2&quot;);
+console.log(1 +  -&quot;1&quot; + &quot;2&quot;);
+console.log(+&quot;1&quot; +  &quot;1&quot; + &quot;2&quot;);
+console.log( &quot;A&quot; - &quot;B&quot; + &quot;2&quot;);
+console.log( &quot;A&quot; - &quot;B&quot; + 2);
+</code></pre><p>输出什么，自己去运行吧，需要注意三个点：</p>
+<p>1、多个数字和数字字符串混合运算时，跟操作数的位置有关</p>
+<pre><code>console.log(2 + 1 + &apos;3&apos;); / /‘33’
+console.log(&apos;3&apos; + 2 + 1); //&apos;321&apos;
+</code></pre><p>数字字符串之前存在数字中的正负号(+/-)时，会被转换成数字</p>
+<pre><code>console.log(typeof &apos;3&apos;);   // string
+console.log(typeof +&apos;3&apos;);  //number
+</code></pre><p>同样，可以在数字前添加 ‘’，将数字转为字符串。</p>
+<p>2、</p>
+<pre><code>console.log(typeof 3);   // number
+console.log(typeof (&apos;&apos;+3));  //string
+</code></pre><p>对于运算结果不能转换成数字的，将返回 NaN</p>
+<pre><code>console.log(&apos;a&apos; * &apos;sd&apos;);   //NaN
+console.log(&apos;A&apos; - &apos;B&apos;);  // NaN
+</code></pre><p>这张图是运算转换的规则</p>
+<p><img src="https://raw.githubusercontent.com/dushao103500/You-must-know/master/images/15_3.png" alt=""></p>
+<p>3、运算符转换</p>
+<h3 id="16、如果-list-很大，下面的这段递归代码会造成堆栈溢出。如果在不改变递归模式的前提下修善这段代码？"><a href="#16、如果-list-很大，下面的这段递归代码会造成堆栈溢出。如果在不改变递归模式的前提下修善这段代码？" class="headerlink" title="16、如果 list 很大，下面的这段递归代码会造成堆栈溢出。如果在不改变递归模式的前提下修善这段代码？"></a>16、如果 list 很大，下面的这段递归代码会造成堆栈溢出。如果在不改变递归模式的前提下修善这段代码？</h3><pre><code>var list = readHugeList();
+
+var nextListItem = function() {
+    var item = list.pop();
+
+    if (item) {
+        // process the list item...
+        nextListItem();
+    }
+};
+</code></pre><p>原文上的解决方式是加个定时器：</p>
+<pre><code>var list = readHugeList();
+
+var nextListItem = function() {
+    var item = list.pop();
+
+    if (item) {
+        // process the list item...
+        setTimeout( nextListItem, 0);
+    }
+};
+</code></pre><p>解决方式的原理请参考第10题。</p>
+<h3 id="17、什么是闭包？举例说明"><a href="#17、什么是闭包？举例说明" class="headerlink" title="17、什么是闭包？举例说明"></a>17、什么是闭包？举例说明</h3><p>可以参考此篇：<a href="http://www.liuhaihua.cn/archives/152190.html" target="_blank" rel="external">从作用域链谈闭包</a></p>
+<h3 id="18、下面的代码会输出什么？为啥？"><a href="#18、下面的代码会输出什么？为啥？" class="headerlink" title="18、下面的代码会输出什么？为啥？"></a>18、下面的代码会输出什么？为啥？</h3><pre><code>for (var i = 0; i &lt; 5; i++) {
+  setTimeout(function() { console.log(i); }, i * 1000 );
+}
+</code></pre><p>请往前面翻，参考第4题，解决方式已经在上面了</p>
+<h3 id="19、解释下列代码的输出"><a href="#19、解释下列代码的输出" class="headerlink" title="19、解释下列代码的输出"></a>19、解释下列代码的输出</h3><pre><code>console.log(&quot;0 || 1 = &quot;+(0 || 1));
+console.log(&quot;1 || 2 = &quot;+(1 || 2));
+console.log(&quot;0 &amp;&amp; 1 = &quot;+(0 &amp;&amp; 1));
+console.log(&quot;1 &amp;&amp; 2 = &quot;+(1 &amp;&amp; 2));
+</code></pre><p>逻辑与和逻辑或运算符会返回一个值，并且二者都是短路运算符：</p>
+<p>逻辑与返回第一个是 false 的操作数 或者 最后一个是 true的操作数</p>
+<pre><code>console.log(1 &amp;&amp; 2 &amp;&amp; 0);  //0
+console.log(1 &amp;&amp; 0 &amp;&amp; 1);  //0
+console.log(1 &amp;&amp; 2 &amp;&amp; 3);  //3
+</code></pre><p>如果某个操作数为 false，则该操作数之后的操作数都不会被计算</p>
+<p>逻辑或返回第一个是 true 的操作数 或者 最后一个是 false的操作数</p>
+<pre><code>console.log(1 || 2 || 0); //1
+console.log(0 || 2 || 1); //2
+console.log(0 || 0 || false); //false
+</code></pre><p>如果某个操作数为 true，则该操作数之后的操作数都不会被计算</p>
+<p>如果逻辑与和逻辑或作混合运算，则逻辑与的优先级高：</p>
+<pre><code>console.log(1 &amp;&amp; 2 || 0); //2
+console.log(0 || 2 &amp;&amp; 1); //1
+console.log(0 &amp;&amp; 2 || 1); //1
+</code></pre><p>在 JavaScript，常见的 false 值：</p>
+<p>要注意空数组([])和空对象({}):</p>
+<pre><code>console.log([] == false) //true
+console.log({} == false) //false
+console.log(Boolean([])) //true
+console.log(Boolean({})) //true
+</code></pre><p>所以在 if 中，[] 和 {} 都表现为 true：</p>
+<h3 id="20、解释下面代码的输出"><a href="#20、解释下面代码的输出" class="headerlink" title="20、解释下面代码的输出"></a>20、解释下面代码的输出</h3><pre><code>console.log(false == &apos;0&apos;)
+console.log(false === &apos;0&apos;)
+</code></pre><p>请参考前面第14题运算符转换规则的图。</p>
+<h3 id="21、解释下面代码的输出"><a href="#21、解释下面代码的输出" class="headerlink" title="21、解释下面代码的输出"></a>21、解释下面代码的输出</h3><pre><code>var a={},
+    b={key:&apos;b&apos;},
+    c={key:&apos;c&apos;};
+
+a[b]=123;
+a[c]=456;
+
+console.log(a[b]);
+</code></pre><p>输出是 456，参考原文的解释：</p>
+<blockquote>
+<p>The reason for this is as follows: When setting an object property, JavaScript will implicitly stringify the parameter value. In this case, since b and c are both objects, they will both be converted to “[object Object]”. As a result, a[b] anda[c] are both equivalent to a[“[object Object]”] and can be used interchangeably. Therefore, setting or referencing a[c] is precisely the same as setting or referencing a[b].</p>
+<h3 id="22、解释下面代码的输出"><a href="#22、解释下面代码的输出" class="headerlink" title="22、解释下面代码的输出"></a>22、解释下面代码的输出</h3></blockquote>
+<pre><code>console.log((function f(n){return ((n &gt; 1) ? n * f(n-1) : n)})(10));
+</code></pre><p>结果是10的阶乘。这是一个递归调用，为了简化，我初始化 n=5，则调用链和返回链如下：</p>
+<p>递归</p>
+<h3 id="23、解释下面代码的输出"><a href="#23、解释下面代码的输出" class="headerlink" title="23、解释下面代码的输出"></a>23、解释下面代码的输出</h3><pre><code>(function(x) {
+    return (function(y) {
+        console.log(x);
+    })(2)
+})(1);
+</code></pre><p>输出1，闭包能够访问外部作用域的变量或参数。</p>
+<h3 id="24、解释下面代码的输出，并修复存在的问题"><a href="#24、解释下面代码的输出，并修复存在的问题" class="headerlink" title="24、解释下面代码的输出，并修复存在的问题"></a>24、解释下面代码的输出，并修复存在的问题</h3><pre><code>var hero = {
+    _name: &apos;John Doe&apos;,
+    getSecretIdentity: function (){
+        return this._name;
+    }
+};
+
+var stoleSecretIdentity = hero.getSecretIdentity;
+
+console.log(stoleSecretIdentity());
+console.log(hero.getSecretIdentity());
+</code></pre><p>将 getSecretIdentity 赋给 stoleSecretIdentity，等价于定义了 stoleSecretIdentity 函数：</p>
+<pre><code>var stoleSecretIdentity =  function (){
+        return this._name;
+}
+</code></pre><p>stoleSecretIdentity 的上下文是全局环境，所以第一个输出 undefined。若要输出 John Doe，则要通过 call 、apply 和 bind 等方式改变 stoleSecretIdentity 的this 指向(hero)。</p>
+<p>第二个是调用对象的方法，输出 John Doe。</p>
+<h3 id="25、给你一个-DOM-元素，创建一个能访问该元素所有子元素的函数，并且要将每个子元素传递给指定的回调函数。"><a href="#25、给你一个-DOM-元素，创建一个能访问该元素所有子元素的函数，并且要将每个子元素传递给指定的回调函数。" class="headerlink" title="25、给你一个 DOM 元素，创建一个能访问该元素所有子元素的函数，并且要将每个子元素传递给指定的回调函数。"></a>25、给你一个 DOM 元素，创建一个能访问该元素所有子元素的函数，并且要将每个子元素传递给指定的回调函数。</h3><p>函数接受两个参数：</p>
+<p>DOM<br>指定的回调函数<br>原文利用 深度优先搜索(Depth-First-Search) 给了一个实现：</p>
+<pre><code>function Traverse(p_element,p_callback) {
+   p_callback(p_element);
+   var list = p_element.children;
+   for (var i = 0; i &lt; list.length; i++) {
+       Traverse(list[i],p_callback);  // recursive call
+   }
+}
+</code></pre>
+      
+    </div>
+
+    <div>
+      
+        
+<div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
+    <img id="wechat_subscriber_qcode" src="http://7xn9on.com1.z0.glb.clouddn.com/weixin.jpg" alt="邝光前 wechat" style="width: 200px; max-width: 100%;"/>
+    <div>扫一扫微信</div>
+</div>
+
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="http://7xn9on.com1.z0.glb.clouddn.com/weixin.jpg" alt="邝光前 WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="http://7xn9on.com1.z0.glb.clouddn.com/qq.jpg" alt="邝光前 Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2013/02/15/CSS清除浮动大全共8种方法/" rel="prev" title="CSS清除浮动大全共8种方法">
+                CSS清除浮动大全共8种方法 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="http://7xn9on.com1.z0.glb.clouddn.com/avtar.jpg"
+               alt="邝光前" />
+          <p class="site-author-name" itemprop="name">邝光前</p>
+          <p class="site-description motion-element" itemprop="description">html5,css3,nodejs</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">15</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-name">分类</span>
+              
+            </div>
+          
+
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/htmlk.cn" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/htmlk" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://htmlk.cn" target="_blank" title="官网">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  官网
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/htmlk" target="_blank" title="weibo">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  weibo
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/htmlk" target="_blank" title="blog">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  blog
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              友情链接
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://dushao103500.github.io/" title="杜少博客" target="_blank">杜少博客</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1、使用-typeof-bar-“object”-判断-bar-是不是一个对象有神马潜在的弊端？如何避免这种弊端？"><span class="nav-number">1.</span> <span class="nav-text">1、使用 typeof bar === “object” 判断 bar 是不是一个对象有神马潜在的弊端？如何避免这种弊端？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2、下面的代码会在-console-输出神马？为什么？"><span class="nav-number">2.</span> <span class="nav-text">2、下面的代码会在 console 输出神马？为什么？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3、下面的代码会在-console-输出神马？为什么？"><span class="nav-number">3.</span> <span class="nav-text">3、下面的代码会在 console 输出神马？为什么？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4、将-JavaScript-代码包含在一个函数块中有神马意思呢？为什么要这么做？"><span class="nav-number">4.</span> <span class="nav-text">4、将 JavaScript 代码包含在一个函数块中有神马意思呢？为什么要这么做？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5、在严格模式-‘use-strict’-下进行-JavaScript-开发有神马好处？"><span class="nav-number">5.</span> <span class="nav-text">5、在严格模式(‘use strict’)下进行 JavaScript 开发有神马好处？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6、下面两个函数的返回值是一样的吗？为什么？"><span class="nav-number">6.</span> <span class="nav-text">6、下面两个函数的返回值是一样的吗？为什么？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7、神马是-NaN，它的类型是神马？怎么测试一个值是否等于-NaN"><span class="nav-number">7.</span> <span class="nav-text">7、神马是 NaN，它的类型是神马？怎么测试一个值是否等于 NaN?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8、解释一下下面代码的输出"><span class="nav-number">8.</span> <span class="nav-text">8、解释一下下面代码的输出</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9、实现函数-isInteger-x-来判断-x-是否是整数"><span class="nav-number">9.</span> <span class="nav-text">9、实现函数 isInteger(x) 来判断 x 是否是整数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#10、在下面的代码中，数字-1-4-会以什么顺序输出？为什么会这样输出？"><span class="nav-number">10.</span> <span class="nav-text">10、在下面的代码中，数字 1-4 会以什么顺序输出？为什么会这样输出？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#11、写一个少于-80-字符的函数，判断一个字符串是不是回文字符串"><span class="nav-number">11.</span> <span class="nav-text">11、写一个少于 80 字符的函数，判断一个字符串是不是回文字符串</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#12、写一个按照下面方式调用都能正常工作的-sum-方法"><span class="nav-number">12.</span> <span class="nav-text">12、写一个按照下面方式调用都能正常工作的 sum 方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#13、根据下面的代码片段回答后面的问题"><span class="nav-number">13.</span> <span class="nav-text">13、根据下面的代码片段回答后面的问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#14、下面的代码会输出什么？为什么？"><span class="nav-number">14.</span> <span class="nav-text">14、下面的代码会输出什么？为什么？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#15、下面的代码会输出什么？为什么？"><span class="nav-number">15.</span> <span class="nav-text">15、下面的代码会输出什么？为什么？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#16、如果-list-很大，下面的这段递归代码会造成堆栈溢出。如果在不改变递归模式的前提下修善这段代码？"><span class="nav-number">16.</span> <span class="nav-text">16、如果 list 很大，下面的这段递归代码会造成堆栈溢出。如果在不改变递归模式的前提下修善这段代码？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#17、什么是闭包？举例说明"><span class="nav-number">17.</span> <span class="nav-text">17、什么是闭包？举例说明</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#18、下面的代码会输出什么？为啥？"><span class="nav-number">18.</span> <span class="nav-text">18、下面的代码会输出什么？为啥？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#19、解释下列代码的输出"><span class="nav-number">19.</span> <span class="nav-text">19、解释下列代码的输出</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#20、解释下面代码的输出"><span class="nav-number">20.</span> <span class="nav-text">20、解释下面代码的输出</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#21、解释下面代码的输出"><span class="nav-number">21.</span> <span class="nav-text">21、解释下面代码的输出</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#22、解释下面代码的输出"><span class="nav-number">22.</span> <span class="nav-text">22、解释下面代码的输出</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#23、解释下面代码的输出"><span class="nav-number">23.</span> <span class="nav-text">23、解释下面代码的输出</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#24、解释下面代码的输出，并修复存在的问题"><span class="nav-number">24.</span> <span class="nav-text">24、解释下面代码的输出，并修复存在的问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#25、给你一个-DOM-元素，创建一个能访问该元素所有子元素的函数，并且要将每个子元素传递给指定的回调函数。"><span class="nav-number">25.</span> <span class="nav-text">25、给你一个 DOM 元素，创建一个能访问该元素所有子元素的函数，并且要将每个子元素传递给指定的回调函数。</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2013 - 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">邝光前</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

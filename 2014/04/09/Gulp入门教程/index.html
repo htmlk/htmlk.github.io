@@ -1,0 +1,875 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="邝光前, htmlk,小k博客" />
+
+
+
+
+
+  <link rel="alternate" href="/htmlk.cn" title="小k博客" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="最近流行前端构建工具，苦于之前使用Grunt，代码很难阅读，现在出了Gulp，真是摆脱了痛苦。发现了一篇很好的Gulp英文教程，整理翻译给大家看看。
+为什么使用GulpGulp基于Node.js的前端构建工具，通过Gulp的插件可以实现前端代码的编译（sass、less）、压缩、测试；图片的压缩；浏览器自动刷新，还有许多强大的插件可以在这里查找。比起Grunt不仅配置简单而且更容易阅读和维护，我们">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Gulp入门教程">
+<meta property="og:url" content="http://htmlk.com/2014/04/09/Gulp入门教程/index.html">
+<meta property="og:site_name" content="小k博客">
+<meta property="og:description" content="最近流行前端构建工具，苦于之前使用Grunt，代码很难阅读，现在出了Gulp，真是摆脱了痛苦。发现了一篇很好的Gulp英文教程，整理翻译给大家看看。
+为什么使用GulpGulp基于Node.js的前端构建工具，通过Gulp的插件可以实现前端代码的编译（sass、less）、压缩、测试；图片的压缩；浏览器自动刷新，还有许多强大的插件可以在这里查找。比起Grunt不仅配置简单而且更容易阅读和维护，我们">
+<meta property="og:updated_time" content="2016-10-08T07:08:34.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Gulp入门教程">
+<meta name="twitter:description" content="最近流行前端构建工具，苦于之前使用Grunt，代码很难阅读，现在出了Gulp，真是摆脱了痛苦。发现了一篇很好的Gulp英文教程，整理翻译给大家看看。
+为什么使用GulpGulp基于Node.js的前端构建工具，通过Gulp的插件可以实现前端代码的编译（sass、less）、压缩、测试；图片的压缩；浏览器自动刷新，还有许多强大的插件可以在这里查找。比起Grunt不仅配置简单而且更容易阅读和维护，我们">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"right","display":"always"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://htmlk.com/2014/04/09/Gulp入门教程/"/>
+
+  <title> Gulp入门教程 | 小k博客 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-right page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">小k博客</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">前端技术分享</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Gulp入门教程
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2014-04-09T20:21:02+08:00" content="2014-04-09">
+              2014-04-09
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Node-js/" itemprop="url" rel="index">
+                    <span itemprop="name">Node.js</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>最近流行前端构建工具，苦于之前使用Grunt，代码很难阅读，现在出了Gulp，真是摆脱了痛苦。发现了一篇很好的Gulp英文教程，整理翻译给大家看看。</p>
+<h3 id="为什么使用Gulp"><a href="#为什么使用Gulp" class="headerlink" title="为什么使用Gulp"></a>为什么使用Gulp</h3><p>Gulp基于Node.js的前端构建工具，通过Gulp的插件可以实现前端代码的编译（sass、less）、压缩、测试；图片的压缩；浏览器自动刷新，还有许多强大的插件可以在这里查找。比起Grunt不仅配置简单而且更容易阅读和维护，我们可以做一个对比：</p>
+<h4 id="Grunt"><a href="#Grunt" class="headerlink" title="Grunt:"></a>Grunt:</h4><pre><code>sass: {
+  dist: {
+    options: {
+      style: &apos;expanded&apos;
+    },
+    files: {
+      &apos;dist/assets/css/main.css&apos;: &apos;src/styles/main.scss&apos;,
+    }
+  }
+},
+autoprefixer: {
+  dist: {
+    options: {
+      browsers: [
+        &apos;last 2 version&apos;, &apos;safari 5&apos;, &apos;ie 8&apos;, &apos;ie 9&apos;, &apos;opera 12.1&apos;, &apos;ios 6&apos;, &apos;android 4&apos;
+      ]
+    },
+    src: &apos;dist/assets/css/main.css&apos;,
+    dest: &apos;dist/assets/css/main.css&apos;
+  }
+},
+grunt.registerTask(&apos;styles&apos;, [&apos;sass&apos;, &apos;autoprefixer&apos;]);
+</code></pre><p>在Grunt里面，每个插件使用的方式相对独立，正如上面的代码通过sass插件将main.sass文件编译成main.css文件，接着autoprefixer插件再对编译好的main.css文件进行修改，最后覆盖main.css。那么覆盖文件就是多余的了，有没办法做到sass和autoprefixer一并处理完再生成main.css？我们来看看Gulp是如何做到的：</p>
+<h4 id="Gulp："><a href="#Gulp：" class="headerlink" title="Gulp："></a>Gulp：</h4><pre><code>gulp.task(&apos;sass&apos;, function() {
+  return gulp.src(&apos;src/styles/main.scss&apos;)
+    .pipe(sass({ style: &apos;compressed&apos; }))
+    .pipe(autoprefixer(&apos;last 2 version&apos;, &apos;safari 5&apos;, &apos;ie 8&apos;, &apos;ie 9&apos;, &apos;opera 12.1&apos;, &apos;ios 6&apos;, &apos;android 4&apos;))
+    .pipe(gulp.dest(&apos;dist/assets/css&apos;))
+});
+</code></pre><p>使用Gulp我们只需要放一个路径，通过管道方式使用插件，最后生成文件，是不是有种jQuery的感觉。这种方式不仅提高效率而且一眼就看清了输入文件和输出文件，再也不用看gruntfile看得眼花缭乱了。</p>
+<p>再打个比喻，Grunt的插件就像独立的工厂，这个工厂生成出来的产品打包封装好后再送到另一个工厂去加工，使用了Gulp后实现了工厂的合并，所有东西都在一个工厂里完成了。现在是否对Gulp感兴趣了，那就开始使用Gulp吧！</p>
+<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><p>首先我们要全局安装一遍：</p>
+<pre><code>$ npm install gulp -g
+</code></pre><p>接着我们要进去到项目的根目录再安装一遍（确保你根目录存在package.json文件）：</p>
+<pre><code>$ npm install gulp --save-dev
+</code></pre><p>—save-dev这个属性会将条目保存到你package.json的devDependencies里面</p>
+<h3 id="安装Gulp插件"><a href="#安装Gulp插件" class="headerlink" title="安装Gulp插件"></a>安装Gulp插件</h3><p>我们将要使用Gulp插件来完成我们以下任务：</p>
+<ul>
+<li>sass的编译（<a href="https://github.com/sindresorhus/gulp-ruby-sass" target="_blank" rel="external">gulp-ruby-sass</a>）</li>
+<li>自动添加css前缀（<a href="https://github.com/Metrime/gulp-autoprefixer" target="_blank" rel="external">gulp-autoprefixer</a>）</li>
+<li>压缩css（<a href="https://github.com/jonathanepollack/gulp-minify-css" target="_blank" rel="external">gulp-minify-css</a>）</li>
+<li>js代码校验（<a href="https://github.com/spalger/gulp-jshint" target="_blank" rel="external">gulp-jshint</a>）</li>
+<li>合并js文件（<a href="https://github.com/contra/gulp-concat" target="_blank" rel="external">gulp-concat</a>）</li>
+<li>压缩js代码（<a href="https://github.com/terinjokes/gulp-uglify" target="_blank" rel="external">gulp-uglify</a>）</li>
+<li>压缩图片（<a href="https://github.com/sindresorhus/gulp-imagemin" target="_blank" rel="external">gulp-imagemin</a>）</li>
+<li>自动刷新页面（<a href="https://github.com/vohof/gulp-livereload" target="_blank" rel="external">gulp-livereload</a>）</li>
+<li>图片缓存，只有图片替换了才压缩（<a href="https://github.com/jgable/gulp-cache" target="_blank" rel="external">gulp-cache</a>）</li>
+<li>更改提醒（<a href="https://github.com/mikaelbr/gulp-notify" target="_blank" rel="external">gulp-notify</a>）</li>
+<li>清除文件（<a href="https://www.npmjs.com/package/del" target="_blank" rel="external">del</a>）</li>
+</ul>
+<p>安装这些插件需要运行如下命令：</p>
+<pre><code>$ npm install gulp-ruby-sass gulp-autoprefixer gulp-minify-css gulp-jshint gulp-concat gulp-uglify gulp-imagemin gulp-notify gulp-rename gulp-livereload gulp-cache del --save-dev
+</code></pre><p>上面是一些常用的插件，如果想要找更多的插件点击这里</p>
+<h3 id="加载插件"><a href="#加载插件" class="headerlink" title="加载插件"></a>加载插件</h3><p>接着我们要创建一个gulpfile.js在根目录下，然后在里面加载插件：</p>
+<pre><code>var gulp = require(&apos;gulp&apos;),
+    sass = require(&apos;gulp-ruby-sass&apos;),
+    autoprefixer = require(&apos;gulp-autoprefixer&apos;),
+    minifycss = require(&apos;gulp-minify-css&apos;),
+    jshint = require(&apos;gulp-jshint&apos;),
+    uglify = require(&apos;gulp-uglify&apos;),
+    imagemin = require(&apos;gulp-imagemin&apos;),
+    rename = require(&apos;gulp-rename&apos;),
+    concat = require(&apos;gulp-concat&apos;),
+    notify = require(&apos;gulp-notify&apos;),
+    cache = require(&apos;gulp-cache&apos;),
+    livereload = require(&apos;gulp-livereload&apos;),
+    del = require(&apos;del&apos;);
+</code></pre><p>Gulp的插件和Grunt有些许不一样，Grunt插件是为了更好的完成一项任务。就像Grunt的imagemin插件就利用了缓存来避免重复压缩，而Gulp要利用gulp-cache来完成，当然啦，不仅限定于缓存图片。</p>
+<h3 id="建立任务"><a href="#建立任务" class="headerlink" title="建立任务"></a>建立任务</h3><h4 id="编译sass、自动添加css前缀和压缩"><a href="#编译sass、自动添加css前缀和压缩" class="headerlink" title="编译sass、自动添加css前缀和压缩"></a>编译sass、自动添加css前缀和压缩</h4><p>首先我们编译sass，添加前缀，保存到我们指定的目录下面，还没结束，我们还要压缩，给文件添加.min后缀再输出压缩文件到指定目录，最后提醒任务完成了：</p>
+<pre><code>gulp.task(&apos;styles&apos;, function() {
+  return gulp.src(&apos;src/styles/main.scss&apos;)
+    .pipe(sass({ style: &apos;expanded&apos; }))
+    .pipe(autoprefixer(&apos;last 2 version&apos;, &apos;safari 5&apos;, &apos;ie 8&apos;, &apos;ie 9&apos;, &apos;opera 12.1&apos;, &apos;ios 6&apos;, &apos;android 4&apos;))
+    .pipe(gulp.dest(&apos;dist/assets/css&apos;))
+    .pipe(rename({suffix: &apos;.min&apos;}))
+    .pipe(minifycss())
+    .pipe(gulp.dest(&apos;dist/assets/css&apos;))
+    .pipe(notify({ message: &apos;Styles task complete&apos; }));
+});
+</code></pre><p>让我解释一下：</p>
+<pre><code>gulp.task(&apos;styles&apos;, function () {...});
+</code></pre><p>gulp.task这个API用来创建任务，在命令行下可以输入$ gulp styles来执行上面的任务。</p>
+<pre><code>return gulp.src(&apos;src/styles/main.scss&apos;)
+</code></pre><p>gulp.src这个API设置需要处理的文件的路径，可以是多个文件以数组的形式[main.scss, vender.scss]，也可以是正则表达式/<em>*/</em>.scss。</p>
+<pre><code>.pipe(sass({ style: &apos;expanded&apos; }))
+</code></pre><p>我们使用.pipe()这个API将需要处理的文件导向sass插件，那些插件的用法可以在github上找到，为了方便大家查找我已经在上面列出来了。</p>
+<pre><code>.pipe(gulp.dest(&apos;dist/assets/css&apos;));
+</code></pre><p>gulp.dest()API设置生成文件的路径，一个任务可以有多个生成路径，一个可以输出未压缩的版本，另一个可以输出压缩后的版本。</p>
+<p>为了更好的了解Gulp API，强烈建议看一下<a href="https://github.com/gulpjs/gulp/blob/master/docs/API.md" target="_blank" rel="external">Gulp API文档</a>，其实Gulp API就这么几个，没什么好可怕的。</p>
+<h4 id="js代码校验、合并和压缩"><a href="#js代码校验、合并和压缩" class="headerlink" title="js代码校验、合并和压缩"></a>js代码校验、合并和压缩</h4><p>希望大家已经知道如何去创建一个任务了，接下来我们完成scripts的校验、合并和压缩的任务吧：</p>
+<pre><code>gulp.task(&apos;scripts&apos;, function() {
+  return gulp.src(&apos;src/scripts/**/*.js&apos;)
+    .pipe(jshint(&apos;.jshintrc&apos;))
+    .pipe(jshint.reporter(&apos;default&apos;))
+    .pipe(concat(&apos;main.js&apos;))
+    .pipe(gulp.dest(&apos;dist/assets/js&apos;))
+    .pipe(rename({suffix: &apos;.min&apos;}))
+    .pipe(uglify())
+    .pipe(gulp.dest(&apos;dist/assets/js&apos;))
+    .pipe(notify({ message: &apos;Scripts task complete&apos; }));
+});
+</code></pre><p>需要提醒的是我们要设置JSHint的reporter方式，上面使用的是default默认的，了解更多点击这里。</p>
+<h3 id="压缩图片"><a href="#压缩图片" class="headerlink" title="压缩图片"></a>压缩图片</h3><pre><code>gulp.task(&apos;images&apos;, function() {
+  return gulp.src(&apos;src/images/**/*&apos;)
+    .pipe(imagemin({ optimizationLevel: 3, progressive: true, interlaced: true }))
+    .pipe(gulp.dest(&apos;dist/assets/img&apos;))
+    .pipe(notify({ message: &apos;Images task complete&apos; }));
+});
+</code></pre><p>这个任务使用imagemin插件把所有在src/images/目录以及其子目录下的所有图片（文件）进行压缩，我们可以进一步优化，利用缓存保存已经压缩过的图片，使用之前装过的gulp-cache插件，不过要修改一下上面的代码：</p>
+<p>将这行代码:</p>
+<pre><code>.pipe(imagemin({ optimizationLevel: 3, progressive: true, interlaced: true }))
+</code></pre><p>修改成:</p>
+<pre><code>.pipe(cache(imagemin({ optimizationLevel: 5, progressive: true, interlaced: true })))
+</code></pre><p>现在，只有新建或者修改过的图片才会被压缩了。</p>
+<h4 id="清除文件"><a href="#清除文件" class="headerlink" title="清除文件"></a>清除文件</h4><p>在任务执行前，最好先清除之前生成的文件：</p>
+<pre><code>gulp.task(&apos;clean&apos;, function(cb) {
+    del([&apos;dist/assets/css&apos;, &apos;dist/assets/js&apos;, &apos;dist/assets/img&apos;], cb)
+});
+</code></pre><p>在这里没有必要使用Gulp插件了，可以使用NPM提供的插件。我们用一个回调函数（cb）确保在退出前完成任务。</p>
+<h4 id="设置默认任务（default）"><a href="#设置默认任务（default）" class="headerlink" title="设置默认任务（default）"></a>设置默认任务（default）</h4><p>我们在命令行下输入$ gulp执行的就是默认任务，现在我们为默认任务指定执行上面写好的三个任务：</p>
+<pre><code>gulp.task(&apos;default&apos;, [&apos;clean&apos;], function() {
+    gulp.start(&apos;styles&apos;, &apos;scripts&apos;, &apos;images&apos;);
+});
+</code></pre><p>在这个例子里面，clean任务执行完成了才会去运行其他的任务，在gulp.start()里的任务执行的顺序是不确定的，所以将要在它们之前执行的任务写在数组里面。</p>
+<h4 id="监听文件"><a href="#监听文件" class="headerlink" title="监听文件"></a>监听文件</h4><p>为了监听文件的是否修改以便执行相应的任务，我们需要创建一个新的任务，然后利用gulp.watchAPI实现：</p>
+<pre><code>gulp.task(&apos;watch&apos;, function() {
+  // Watch .scss files
+  gulp.watch(&apos;src/styles/**/*.scss&apos;, [&apos;styles&apos;]);
+  // Watch .js files
+  gulp.watch(&apos;src/scripts/**/*.js&apos;, [&apos;scripts&apos;]);
+  // Watch image files
+  gulp.watch(&apos;src/images/**/*&apos;, [&apos;images&apos;]);
+});
+</code></pre><p>我们将不同类型的文件分开处理，执行对应的数组里的任务。现在我们可以在命令行输入$ gulp watch执行监听任务，当.sass、.js和图片修改时将执行对应的任务。</p>
+<h4 id="自动刷新页面"><a href="#自动刷新页面" class="headerlink" title="自动刷新页面"></a>自动刷新页面</h4><p>Gulp也可以实现当文件修改时自动刷新页面，我们要修改watch任务，配置LiveReload：</p>
+<pre><code>gulp.task(&apos;watch&apos;, function() {
+  // Create LiveReload server
+  livereload.listen();
+  // Watch any files in dist/, reload on change
+  gulp.watch([&apos;dist/**&apos;]).on(&apos;change&apos;, livereload.changed);
+});
+</code></pre><p>要使这个能够工作，还需要在浏览器上安装LiveReload插件，除此之外还能这样做</p>
+<h4 id="所有"><a href="#所有" class="headerlink" title="所有"></a>所有</h4><pre><code>/*!
+ * gulp
+ * $ npm install gulp-ruby-sass gulp-autoprefixer gulp-minify-css gulp-jshint gulp-concat gulp-uglify gulp-imagemin gulp-notify gulp-rename gulp-livereload gulp-cache del --save-dev
+ */
+// Load plugins
+var gulp = require(&apos;gulp&apos;),
+    sass = require(&apos;gulp-ruby-sass&apos;),
+    autoprefixer = require(&apos;gulp-autoprefixer&apos;),
+    minifycss = require(&apos;gulp-minify-css&apos;),
+    jshint = require(&apos;gulp-jshint&apos;),
+    uglify = require(&apos;gulp-uglify&apos;),
+    imagemin = require(&apos;gulp-imagemin&apos;),
+    rename = require(&apos;gulp-rename&apos;),
+    concat = require(&apos;gulp-concat&apos;),
+    notify = require(&apos;gulp-notify&apos;),
+    cache = require(&apos;gulp-cache&apos;),
+    livereload = require(&apos;gulp-livereload&apos;),
+    del = require(&apos;del&apos;);
+// Styles
+gulp.task(&apos;styles&apos;, function() {
+  return gulp.src(&apos;src/styles/main.scss&apos;)
+    .pipe(sass({ style: &apos;expanded&apos;, }))
+    .pipe(autoprefixer(&apos;last 2 version&apos;, &apos;safari 5&apos;, &apos;ie 8&apos;, &apos;ie 9&apos;, &apos;opera 12.1&apos;, &apos;ios 6&apos;, &apos;android 4&apos;))
+    .pipe(gulp.dest(&apos;dist/styles&apos;))
+    .pipe(rename({ suffix: &apos;.min&apos; }))
+    .pipe(minifycss())
+    .pipe(gulp.dest(&apos;dist/styles&apos;))
+    .pipe(notify({ message: &apos;Styles task complete&apos; }));
+});
+// Scripts
+gulp.task(&apos;scripts&apos;, function() {
+  return gulp.src(&apos;src/scripts/**/*.js&apos;)
+    .pipe(jshint(&apos;.jshintrc&apos;))
+    .pipe(jshint.reporter(&apos;default&apos;))
+    .pipe(concat(&apos;main.js&apos;))
+    .pipe(gulp.dest(&apos;dist/scripts&apos;))
+    .pipe(rename({ suffix: &apos;.min&apos; }))
+    .pipe(uglify())
+    .pipe(gulp.dest(&apos;dist/scripts&apos;))
+    .pipe(notify({ message: &apos;Scripts task complete&apos; }));
+});
+// Images
+gulp.task(&apos;images&apos;, function() {
+  return gulp.src(&apos;src/images/**/*&apos;)
+    .pipe(cache(imagemin({ optimizationLevel: 3, progressive: true, interlaced: true })))
+    .pipe(gulp.dest(&apos;dist/images&apos;))
+    .pipe(notify({ message: &apos;Images task complete&apos; }));
+});
+// Clean
+gulp.task(&apos;clean&apos;, function(cb) {
+    del([&apos;dist/assets/css&apos;, &apos;dist/assets/js&apos;, &apos;dist/assets/img&apos;], cb)
+});
+// Default task
+gulp.task(&apos;default&apos;, [&apos;clean&apos;], function() {
+    gulp.start(&apos;styles&apos;, &apos;scripts&apos;, &apos;images&apos;);
+});
+// Watch
+gulp.task(&apos;watch&apos;, function() {
+  // Watch .scss files
+  gulp.watch(&apos;src/styles/**/*.scss&apos;, [&apos;styles&apos;]);
+  // Watch .js files
+  gulp.watch(&apos;src/scripts/**/*.js&apos;, [&apos;scripts&apos;]);
+  // Watch image files
+  gulp.watch(&apos;src/images/**/*&apos;, [&apos;images&apos;]);
+  // Create LiveReload server
+  livereload.listen();
+  // Watch any files in dist/, reload on change
+  gulp.watch([&apos;dist/**&apos;]).on(&apos;change&apos;, livereload.changed);
+});
+</code></pre><p>在gist上有源码，并且附上Grunt的实现作为对比。</p>
+<blockquote>
+<p>参考链接：<a href="http://markgoodyear.com/2014/01/getting-started-with-gulp/" target="_blank" rel="external">http://markgoodyear.com/2014/01/getting-started-with-gulp/</a><br><a href="http://markpop.github.io/2014/09/17/Gulp%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B/" target="_blank" rel="external">http://markpop.github.io/2014/09/17/Gulp%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B/</a></p>
+</blockquote>
+
+      
+    </div>
+
+    <div>
+      
+        
+<div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
+    <img id="wechat_subscriber_qcode" src="http://7xn9on.com1.z0.glb.clouddn.com/weixin.jpg" alt="邝光前 wechat" style="width: 200px; max-width: 100%;"/>
+    <div>扫一扫微信</div>
+</div>
+
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="http://7xn9on.com1.z0.glb.clouddn.com/weixin.jpg" alt="邝光前 WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="http://7xn9on.com1.z0.glb.clouddn.com/qq.jpg" alt="邝光前 Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2013/10/15/gulp+webpack的使用/" rel="next" title="gulp+webpack的使用">
+                <i class="fa fa-chevron-left"></i> gulp+webpack的使用
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2014/07/03/置换和非置换元素/" rel="prev" title="置换和非置换元素">
+                置换和非置换元素 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="http://7xn9on.com1.z0.glb.clouddn.com/avtar.jpg"
+               alt="邝光前" />
+          <p class="site-author-name" itemprop="name">邝光前</p>
+          <p class="site-description motion-element" itemprop="description">html5,css3,nodejs</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">15</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-name">分类</span>
+              
+            </div>
+          
+
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/htmlk.cn" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/htmlk" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://htmlk.cn" target="_blank" title="官网">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  官网
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/htmlk" target="_blank" title="weibo">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  weibo
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/htmlk" target="_blank" title="blog">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  blog
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              友情链接
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://dushao103500.github.io/" title="杜少博客" target="_blank">杜少博客</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#为什么使用Gulp"><span class="nav-number">1.</span> <span class="nav-text">为什么使用Gulp</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Grunt"><span class="nav-number">1.1.</span> <span class="nav-text">Grunt:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Gulp："><span class="nav-number">1.2.</span> <span class="nav-text">Gulp：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装"><span class="nav-number">2.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装Gulp插件"><span class="nav-number">3.</span> <span class="nav-text">安装Gulp插件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#加载插件"><span class="nav-number">4.</span> <span class="nav-text">加载插件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#建立任务"><span class="nav-number">5.</span> <span class="nav-text">建立任务</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#编译sass、自动添加css前缀和压缩"><span class="nav-number">5.1.</span> <span class="nav-text">编译sass、自动添加css前缀和压缩</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#js代码校验、合并和压缩"><span class="nav-number">5.2.</span> <span class="nav-text">js代码校验、合并和压缩</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#压缩图片"><span class="nav-number">6.</span> <span class="nav-text">压缩图片</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#清除文件"><span class="nav-number">6.1.</span> <span class="nav-text">清除文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#设置默认任务（default）"><span class="nav-number">6.2.</span> <span class="nav-text">设置默认任务（default）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#监听文件"><span class="nav-number">6.3.</span> <span class="nav-text">监听文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#自动刷新页面"><span class="nav-number">6.4.</span> <span class="nav-text">自动刷新页面</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#所有"><span class="nav-number">6.5.</span> <span class="nav-text">所有</span></a></li></ol></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2013 - 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">邝光前</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

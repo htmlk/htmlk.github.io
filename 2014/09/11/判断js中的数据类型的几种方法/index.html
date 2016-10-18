@@ -1,0 +1,740 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="邝光前, htmlk,小k博客" />
+
+
+
+
+
+  <link rel="alternate" href="/htmlk.cn" title="小k博客" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="判断js中的数据类型有一下几种方法：typeof、instanceof、 constructor、 prototype、 $.type()/jquery.type(),接下来主要比较一下这几种方法的异同。
+先举几个例子：
+var a = &amp;quot;iamstring.&amp;quot;;
+var b = 222;
+var c= [1,2,3];
+var d = new Date();
+var e =">
+<meta property="og:type" content="article">
+<meta property="og:title" content="判断js中的数据类型的几种方法">
+<meta property="og:url" content="http://htmlk.com/2014/09/11/判断js中的数据类型的几种方法/index.html">
+<meta property="og:site_name" content="小k博客">
+<meta property="og:description" content="判断js中的数据类型有一下几种方法：typeof、instanceof、 constructor、 prototype、 $.type()/jquery.type(),接下来主要比较一下这几种方法的异同。
+先举几个例子：
+var a = &amp;quot;iamstring.&amp;quot;;
+var b = 222;
+var c= [1,2,3];
+var d = new Date();
+var e =">
+<meta property="og:updated_time" content="2016-10-08T13:22:21.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="判断js中的数据类型的几种方法">
+<meta name="twitter:description" content="判断js中的数据类型有一下几种方法：typeof、instanceof、 constructor、 prototype、 $.type()/jquery.type(),接下来主要比较一下这几种方法的异同。
+先举几个例子：
+var a = &amp;quot;iamstring.&amp;quot;;
+var b = 222;
+var c= [1,2,3];
+var d = new Date();
+var e =">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"right","display":"always"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://htmlk.com/2014/09/11/判断js中的数据类型的几种方法/"/>
+
+  <title> 判断js中的数据类型的几种方法 | 小k博客 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-right page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">小k博客</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">前端技术分享</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                判断js中的数据类型的几种方法
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2014-09-11T10:11:05+08:00" content="2014-09-11">
+              2014-09-11
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Javascript编程知识/" itemprop="url" rel="index">
+                    <span itemprop="name">Javascript编程知识</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>判断js中的数据类型有一下几种方法：typeof、instanceof、 constructor、 prototype、 $.type()/jquery.type(),接下来主要比较一下这几种方法的异同。</p>
+<p><strong>先举几个例子：</strong></p>
+<pre><code>var a = &quot;iamstring.&quot;;
+var b = 222;
+var c= [1,2,3];
+var d = new Date();
+var e = function(){alert(111);};
+var f = function(){this.name=&quot;22&quot;;};
+</code></pre><h3 id="1、最常见的判断方法：typeof"><a href="#1、最常见的判断方法：typeof" class="headerlink" title="1、最常见的判断方法：typeof"></a>1、最常见的判断方法：typeof</h3><pre><code>alert(typeof a)   ------------&gt; string
+alert(typeof b)   ------------&gt; number
+alert(typeof c)   ------------&gt; object
+alert(typeof d)   ------------&gt; object
+alert(typeof e)   ------------&gt; function
+alert(typeof f)   ------------&gt; function
+其中typeof返回的类型都是字符串形式，需注意，例如：
+alert(typeof a == &quot;string&quot;) -------------&gt; true
+alert(typeof a == String) ---------------&gt; false
+另外typeof 可以判断function的类型；在判断除Object类型的对象时比较方便。
+</code></pre><h3 id="2、判断已知对象类型的方法：-instanceof"><a href="#2、判断已知对象类型的方法：-instanceof" class="headerlink" title="2、判断已知对象类型的方法： instanceof"></a>2、判断已知对象类型的方法： instanceof</h3><pre><code>alert(c instanceof Array) ---------------&gt; true
+alert(d instanceof Date) 
+alert(f instanceof Function) ------------&gt; true
+alert(f instanceof function) ------------&gt; false
+注意：instanceof 后面一定要是对象类型，并且大小写不能错，该方法适合一些条件选择或分支。
+</code></pre><h3 id="3、根据对象的constructor判断：-constructor"><a href="#3、根据对象的constructor判断：-constructor" class="headerlink" title="3、根据对象的constructor判断： constructor"></a>3、根据对象的constructor判断： constructor</h3><pre><code>alert(c.constructor === Array) ----------&gt; true
+alert(d.constructor === Date) -----------&gt; true
+alert(e.constructor === Function) -------&gt; true
+注意： constructor 在类继承时会出错
+eg：
+      function A(){};
+      function B(){};
+      A.prototype = new B(); //A继承自B
+      var aObj = new A();
+      alert(aobj.constructor === B) -----------&gt; true;
+      alert(aobj.constructor === A) -----------&gt; false;
+而instanceof方法不会出现该问题，对象直接继承和间接继承的都会报true：
+      alert(aobj instanceof B) ----------------&gt; true;
+      alert(aobj instanceof B) ----------------&gt; true;
+言归正传，解决construtor的问题通常是让对象的constructor手动指向自己：
+      aobj.constructor = A; //将自己的类赋值给对象的constructor属性
+      alert(aobj.constructor === A) -----------&gt; true;
+      alert(aobj.constructor === B) -----------&gt; false; //基类不会报true了;
+</code></pre><h3 id="4、通用但很繁琐的方法：-prototype"><a href="#4、通用但很繁琐的方法：-prototype" class="headerlink" title="4、通用但很繁琐的方法： prototype"></a>4、通用但很繁琐的方法： prototype</h3><pre><code>alert(Object.prototype.toString.call(a) === ‘[object String]’) -------&gt; true;
+alert(Object.prototype.toString.call(b) === ‘[object Number]’) -------&gt; true;
+alert(Object.prototype.toString.call(c) === ‘[object Array]’) -------&gt; true;
+alert(Object.prototype.toString.call(d) === ‘[object Date]’) -------&gt; true;
+alert(Object.prototype.toString.call(e) === ‘[object Function]’) -------&gt; true;
+alert(Object.prototype.toString.call(f) === ‘[object Function]’) -------&gt; true;
+大小写不能写错，比较麻烦，但胜在通用。
+</code></pre><h3 id="5、无敌万能的方法：jquery-type"><a href="#5、无敌万能的方法：jquery-type" class="headerlink" title="5、无敌万能的方法：jquery.type()"></a>5、无敌万能的方法：jquery.type()</h3><pre><code>如果对象是undefined或null，则返回相应的“undefined”或“null”。
+jQuery.type( undefined ) === &quot;undefined&quot;
+jQuery.type() === &quot;undefined&quot;
+jQuery.type( window.notDefined ) === &quot;undefined&quot;
+jQuery.type( null ) === &quot;null&quot;
+如果对象有一个内部的[[Class]]和一个浏览器的内置对象的 [[Class]] 相同，我们返回相应的 [[Class]] 名字。 (有关此技术的更多细节。 )
+jQuery.type( true ) === &quot;boolean&quot;
+jQuery.type( 3 ) === &quot;number&quot;
+jQuery.type( &quot;test&quot; ) === &quot;string&quot;
+jQuery.type( function(){} ) === &quot;function&quot;
+jQuery.type( [] ) === &quot;array&quot;
+jQuery.type( new Date() ) === &quot;date&quot;
+jQuery.type( new Error() ) === &quot;error&quot; // as of jQuery 1.9
+jQuery.type( /test/ ) === &quot;regexp&quot;
+其他一切都将返回它的类型“object”。
+</code></pre><p>通常情况下用typeof 判断就可以了，遇到预知Object类型的情况可以选用instanceof或constructor方法,实在没辙就使用$.type()方法。</p>
+<blockquote>
+<p>参考链接：<a href="http://blog.sina.com.cn/s/blog_51048da70101grz6.html" target="_blank" rel="external">http://blog.sina.com.cn/s/blog_51048da70101grz6.html</a></p>
+</blockquote>
+
+      
+    </div>
+
+    <div>
+      
+        
+<div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
+    <img id="wechat_subscriber_qcode" src="http://7xn9on.com1.z0.glb.clouddn.com/weixin.jpg" alt="邝光前 wechat" style="width: 200px; max-width: 100%;"/>
+    <div>扫一扫微信</div>
+</div>
+
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="http://7xn9on.com1.z0.glb.clouddn.com/weixin.jpg" alt="邝光前 WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="http://7xn9on.com1.z0.glb.clouddn.com/qq.jpg" alt="邝光前 Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2014/07/03/置换和非置换元素/" rel="next" title="置换和非置换元素">
+                <i class="fa fa-chevron-left"></i> 置换和非置换元素
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2014/09/17/区分JS中的undefined,null,,0和false/" rel="prev" title="区分JS中的undefined,null,"",0和false">
+                区分JS中的undefined,null,"",0和false <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="http://7xn9on.com1.z0.glb.clouddn.com/avtar.jpg"
+               alt="邝光前" />
+          <p class="site-author-name" itemprop="name">邝光前</p>
+          <p class="site-description motion-element" itemprop="description">html5,css3,nodejs</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">15</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-name">分类</span>
+              
+            </div>
+          
+
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/htmlk.cn" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/htmlk" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://htmlk.cn" target="_blank" title="官网">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  官网
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/htmlk" target="_blank" title="weibo">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  weibo
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/htmlk" target="_blank" title="blog">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  blog
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              友情链接
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://dushao103500.github.io/" title="杜少博客" target="_blank">杜少博客</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1、最常见的判断方法：typeof"><span class="nav-number">1.</span> <span class="nav-text">1、最常见的判断方法：typeof</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2、判断已知对象类型的方法：-instanceof"><span class="nav-number">2.</span> <span class="nav-text">2、判断已知对象类型的方法： instanceof</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3、根据对象的constructor判断：-constructor"><span class="nav-number">3.</span> <span class="nav-text">3、根据对象的constructor判断： constructor</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4、通用但很繁琐的方法：-prototype"><span class="nav-number">4.</span> <span class="nav-text">4、通用但很繁琐的方法： prototype</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5、无敌万能的方法：jquery-type"><span class="nav-number">5.</span> <span class="nav-text">5、无敌万能的方法：jquery.type()</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2013 - 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">邝光前</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
