@@ -1,0 +1,10 @@
+  <?xml version="1.0" encoding="utf-8"?>
+   <urlset>
+
+       <url>
+            <loc>http://htmlk.cn/index.html</loc>
+             <lastmod>2017-03-21</lastmod>
+          <changefreq>daily</changefreq>
+             <priority>1.0</priority>
+       </url>
+   </urlset>
