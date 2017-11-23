@@ -2,16 +2,254 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>//htmlk.cn/photos/ins.json</loc>
+    <loc>//htmlk.cn/2016/11/30/diary-2016-1023-1029/</loc>
     
-    <lastmod>2017-11-15T03:07:27.667Z</lastmod>
+    <lastmod>2017-11-23T08:59:21.687Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>//htmlk.cn/2016/12/03/instagram-api-ex/</loc>
+    
+    <lastmod>2017-11-23T08:58:29.983Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>//htmlk.cn/2016/12/20/no-one-used-pro/</loc>
+    
+    <lastmod>2017-11-23T08:58:02.291Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>//htmlk.cn/2016/12/22/thinner-than-1px-border/</loc>
+    
+    <lastmod>2017-11-23T08:57:43.307Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>//htmlk.cn/2017/08/14/reduce-http-requests/</loc>
+    
+    <lastmod>2017-11-23T08:53:10.234Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>//htmlk.cn/2017/05/22/diary-2017-0521-0527/</loc>
+    
+    <lastmod>2017-11-23T08:51:51.347Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>//htmlk.cn/2015/06/05/viewing-commentary/</loc>
+    
+    <lastmod>2017-11-23T08:42:08.251Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>//htmlk.cn/2016/10/05/history-of-browser-useragent2/</loc>
+    
+    <lastmod>2017-11-23T08:41:18.830Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>//htmlk.cn/2016/09/26/history-of-browser-useragent/</loc>
+    
+    <lastmod>2017-11-23T08:41:14.674Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>//htmlk.cn/2016/09/26/journey-to-yunnan/</loc>
+    
+    <lastmod>2017-11-23T08:40:11.162Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>//htmlk.cn/2017/08/22/two-magics-of-the-pilot/</loc>
+    
+    <lastmod>2017-11-23T08:39:37.070Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>//htmlk.cn/2017/08/20/three-drama/</loc>
+    
+    <lastmod>2017-11-23T08:39:04.390Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>//htmlk.cn/2017/07/25/folder-to-tree/</loc>
+    
+    <lastmod>2017-11-23T08:36:35.582Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>//htmlk.cn/2016/03/30/volunteer-activities/</loc>
+    
+    <lastmod>2017-11-23T08:35:40.750Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>//htmlk.cn/2017/02/12/about-pjax/</loc>
+    
+    <lastmod>2017-11-23T08:35:15.794Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>//htmlk.cn/2017/05/27/safety-point-of-view-from-front-end/</loc>
+    
+    <lastmod>2017-11-23T08:34:43.910Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>//htmlk.cn/2017/01/10/lock-me-in-a-cup/</loc>
+    
+    <lastmod>2017-11-23T08:29:31.665Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>//htmlk.cn/2017/11/07/something-about-immersion/</loc>
+    
+    <lastmod>2017-11-23T08:29:10.643Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>//htmlk.cn/2016/10/06/handling-asynchronous-js/</loc>
+    
+    <lastmod>2017-11-23T08:28:42.425Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>//htmlk.cn/2017/09/25/web-worker-learning/</loc>
+    
+    <lastmod>2017-11-23T08:28:11.434Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>//htmlk.cn/2017/05/03/my-news-reader-box/</loc>
+    
+    <lastmod>2017-11-23T08:27:06.222Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>//htmlk.cn/2017/08/20/oauth-rabbit/</loc>
+    
+    <lastmod>2017-11-23T08:26:23.782Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>//htmlk.cn/2017/08/11/brief-oauth/</loc>
+    
+    <lastmod>2017-11-23T08:25:33.298Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>//htmlk.cn/2016/02/09/my-fairy-tale3/</loc>
+    
+    <lastmod>2017-11-23T08:25:06.550Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>//htmlk.cn/2016/09/10/my-fairy-tale2/</loc>
+    
+    <lastmod>2017-11-23T08:24:23.750Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>//htmlk.cn/2016/08/01/gulangyu/</loc>
+    
+    <lastmod>2017-11-23T08:22:46.564Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>//htmlk.cn/2016/12/24/coffee-pc/</loc>
+    
+    <lastmod>2017-11-23T08:21:43.802Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>//htmlk.cn/2016/01/02/mediator-model/</loc>
+    
+    <lastmod>2017-11-23T08:21:09.727Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>//htmlk.cn/2015/12/17/share-a-css-hack/</loc>
+    
+    <lastmod>2017-11-23T08:20:40.709Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>//htmlk.cn/2016/12/21/css-jiugongge2/</loc>
+    
+    <lastmod>2017-11-23T08:20:08.277Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>//htmlk.cn/2016/12/14/css-jiugongge/</loc>
+    
+    <lastmod>2017-11-23T08:20:03.223Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>//htmlk.cn/2016/12/31/css3-animater/</loc>
+    
+    <lastmod>2017-11-23T08:19:48.237Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>//htmlk.cn/2017/06/05/my-fairy-tale4/</loc>
+    
+    <lastmod>2017-11-23T08:16:41.220Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>//htmlk.cn/2017/07/09/prevent-spiders/</loc>
+    
+    <lastmod>2017-11-23T08:15:42.777Z</lastmod>
     
   </url>
   
   <url>
     <loc>//htmlk.cn/photos/index.html</loc>
     
-    <lastmod>2017-11-15T03:07:27.664Z</lastmod>
+    <lastmod>2017-11-21T03:18:39.908Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>//htmlk.cn/photos/ins.json</loc>
+    
+    <lastmod>2017-11-15T03:07:27.667Z</lastmod>
     
   </url>
   
@@ -65,13 +303,6 @@
   </url>
   
   <url>
-    <loc>//htmlk.cn/assets/demo/border1px.html</loc>
-    
-    <lastmod>2017-11-15T03:07:27.609Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>//htmlk.cn/assets/demo/coffee_pc_demo/pro-con.html</loc>
     
     <lastmod>2017-11-15T03:07:27.609Z</lastmod>
@@ -79,58 +310,9 @@
   </url>
   
   <url>
-    <loc>//htmlk.cn/2015/02/23/yilia-on-mobile/</loc>
+    <loc>//htmlk.cn/assets/demo/border1px.html</loc>
     
-    <lastmod>2017-11-15T03:07:27.394Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>//htmlk.cn/2013/09/25/web-worker-learning/</loc>
-    
-    <lastmod>2017-11-15T03:07:27.394Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>//htmlk.cn/2014/03/30/volunteer-activities/</loc>
-    
-    <lastmod>2017-11-15T03:07:27.393Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>//htmlk.cn/2015/06/05/viewing-commentary/</loc>
-    
-    <lastmod>2017-11-15T03:07:27.393Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>//htmlk.cn/2014/08/22/two-magics-of-the-pilot/</loc>
-    
-    <lastmod>2017-11-15T03:07:27.392Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>//htmlk.cn/2014/02/22/thinner-than-1px-border/</loc>
-    
-    <lastmod>2017-11-15T03:07:27.391Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>//htmlk.cn/2014/08/20/three-drama/</loc>
-    
-    <lastmod>2017-11-15T03:07:27.391Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>//htmlk.cn/2012/12/16/theme-update1-dot-0/</loc>
-    
-    <lastmod>2017-11-15T03:07:27.390Z</lastmod>
+    <lastmod>2017-11-15T03:07:27.609Z</lastmod>
     
   </url>
   
@@ -142,107 +324,9 @@
   </url>
   
   <url>
-    <loc>//htmlk.cn/2013/11/07/something-about-immersion/</loc>
-    
-    <lastmod>2017-11-15T03:07:27.389Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>//htmlk.cn/2012/12/17/share-a-css-hack/</loc>
-    
-    <lastmod>2017-11-15T03:07:27.389Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>//htmlk.cn/2014/08/14/reduce-http-requests/</loc>
-    
-    <lastmod>2017-11-15T03:07:27.388Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>//htmlk.cn/2014/05/27/safety-point-of-view-from-front-end/</loc>
-    
-    <lastmod>2017-11-15T03:07:27.388Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>//htmlk.cn/2017/07/09/prevent-spiders/</loc>
-    
-    <lastmod>2017-11-15T03:07:27.387Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>//htmlk.cn/2013/08/20/oauth-rabbit/</loc>
-    
-    <lastmod>2017-11-15T03:07:27.387Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>//htmlk.cn/2013/12/20/no-one-used-pro/</loc>
-    
-    <lastmod>2017-11-15T03:07:27.386Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>//htmlk.cn/2015/11/03/nginx-in-fe/</loc>
     
     <lastmod>2017-11-15T03:07:27.375Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>//htmlk.cn/2017/06/05/my-fairy-tale4/</loc>
-    
-    <lastmod>2017-11-15T03:07:27.374Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>//htmlk.cn/2013/05/03/my-news-reader-box/</loc>
-    
-    <lastmod>2017-11-15T03:07:27.374Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>//htmlk.cn/2014/02/05/my2013/</loc>
-    
-    <lastmod>2017-11-15T03:07:27.374Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>//htmlk.cn/2016/02/09/my-fairy-tale3/</loc>
-    
-    <lastmod>2017-11-15T03:07:27.373Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>//htmlk.cn/2013/09/10/my-fairy-tale2/</loc>
-    
-    <lastmod>2017-11-15T03:07:27.373Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>//htmlk.cn/2013/04/30/my-fairy-tale1/</loc>
-    
-    <lastmod>2017-11-15T03:07:27.372Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>//htmlk.cn/2013/01/02/mediator-model/</loc>
-    
-    <lastmod>2017-11-15T03:07:27.371Z</lastmod>
     
   </url>
   
@@ -254,79 +338,9 @@
   </url>
   
   <url>
-    <loc>//htmlk.cn/2014/08/01/kael-qrcode-info/</loc>
-    
-    <lastmod>2017-11-15T03:07:27.370Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>//htmlk.cn/2014/01/10/lock-me-in-a-cup/</loc>
-    
-    <lastmod>2017-11-15T03:07:27.370Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>//htmlk.cn/2014/09/26/journey-to-yunnan/</loc>
-    
-    <lastmod>2017-11-15T03:07:27.369Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>//htmlk.cn/2014/03/03/instagram-api-ex/</loc>
-    
-    <lastmod>2017-11-15T03:07:27.369Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>//htmlk.cn/2014/10/05/history-of-browser-useragent2/</loc>
-    
-    <lastmod>2017-11-15T03:07:27.368Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>//htmlk.cn/2015/04/28/img-lazy-load/</loc>
     
     <lastmod>2017-11-15T03:07:27.368Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>//htmlk.cn/2014/09/26/history-of-browser-useragent/</loc>
-    
-    <lastmod>2017-11-15T03:07:27.367Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>//htmlk.cn/2013/10/06/handling-asynchronous-js/</loc>
-    
-    <lastmod>2017-11-15T03:07:27.366Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>//htmlk.cn/2014/08/31/hexo-theme-yilia/</loc>
-    
-    <lastmod>2017-11-15T03:07:27.366Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>//htmlk.cn/2012/12/13/hello-world/</loc>
-    
-    <lastmod>2017-11-15T03:07:27.366Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>//htmlk.cn/2016/08/01/gulangyu/</loc>
-    
-    <lastmod>2017-11-15T03:07:27.365Z</lastmod>
     
   </url>
   
@@ -345,37 +359,9 @@
   </url>
   
   <url>
-    <loc>//htmlk.cn/2013/04/15/graduation-shirt-design/</loc>
-    
-    <lastmod>2017-11-15T03:07:27.364Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>//htmlk.cn/2014/07/25/folder-to-tree/</loc>
-    
-    <lastmod>2017-11-15T03:07:27.363Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>//htmlk.cn/2016/02/13/feng-shui/</loc>
     
     <lastmod>2017-11-15T03:07:27.363Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>//htmlk.cn/2017/05/22/diary-2017-0521-0527/</loc>
-    
-    <lastmod>2017-11-15T03:07:27.362Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>//htmlk.cn/2014/10/16/douban-index-for-chrome/</loc>
-    
-    <lastmod>2017-11-15T03:07:27.362Z</lastmod>
     
   </url>
   
@@ -387,21 +373,14 @@
   </url>
   
   <url>
-    <loc>//htmlk.cn/2017/03/12/diary-2017-0305-0311/</loc>
-    
-    <lastmod>2017-11-15T03:07:27.361Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>//htmlk.cn/2017/02/19/diary-2017-0212-0218/</loc>
+    <loc>//htmlk.cn/2017/01/26/diary-2017-0118-0125/</loc>
     
     <lastmod>2017-11-15T03:07:27.360Z</lastmod>
     
   </url>
   
   <url>
-    <loc>//htmlk.cn/2017/01/26/diary-2017-0118-0125/</loc>
+    <loc>//htmlk.cn/2017/02/19/diary-2017-0212-0218/</loc>
     
     <lastmod>2017-11-15T03:07:27.360Z</lastmod>
     
@@ -429,20 +408,6 @@
   </url>
   
   <url>
-    <loc>//htmlk.cn/2016/11/06/diary-2016-1030-1105/</loc>
-    
-    <lastmod>2017-11-15T03:07:27.357Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>//htmlk.cn/2016/10/30/diary-2016-1023-1029/</loc>
-    
-    <lastmod>2017-11-15T03:07:27.357Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>//htmlk.cn/2016/10/23/diary-2016-1016-1022/</loc>
     
     <lastmod>2017-11-15T03:07:27.357Z</lastmod>
@@ -450,14 +415,21 @@
   </url>
   
   <url>
-    <loc>//htmlk.cn/2016/10/08/diary-2016-1001-1007/</loc>
+    <loc>//htmlk.cn/2016/11/06/diary-2016-1030-1105/</loc>
+    
+    <lastmod>2017-11-15T03:07:27.357Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>//htmlk.cn/2016/10/20/diary-2016-1008-1015/</loc>
     
     <lastmod>2017-11-15T03:07:27.356Z</lastmod>
     
   </url>
   
   <url>
-    <loc>//htmlk.cn/2016/10/20/diary-2016-1008-1015/</loc>
+    <loc>//htmlk.cn/2016/10/08/diary-2016-1001-1007/</loc>
     
     <lastmod>2017-11-15T03:07:27.356Z</lastmod>
     
@@ -520,34 +492,6 @@
   </url>
   
   <url>
-    <loc>//htmlk.cn/2012/12/14/css-jiugongge/</loc>
-    
-    <lastmod>2017-11-15T03:07:27.348Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>//htmlk.cn/2012/12/31/css3-animater/</loc>
-    
-    <lastmod>2017-11-15T03:07:27.348Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>//htmlk.cn/2012/12/21/css-jiugongge2/</loc>
-    
-    <lastmod>2017-11-15T03:07:27.348Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>//htmlk.cn/2012/12/24/coffee-pc/</loc>
-    
-    <lastmod>2017-11-15T03:07:27.347Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>//htmlk.cn/2016/04/01/changbaishan/</loc>
     
     <lastmod>2017-11-15T03:07:27.347Z</lastmod>
@@ -558,34 +502,6 @@
     <loc>//htmlk.cn/2017/02/10/brave-new-world/</loc>
     
     <lastmod>2017-11-15T03:07:27.346Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>//htmlk.cn/2013/08/11/brief-oauth/</loc>
-    
-    <lastmod>2017-11-15T03:07:27.346Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>//htmlk.cn/2012/12/18/assassins-creed/</loc>
-    
-    <lastmod>2017-11-15T03:07:27.346Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>//htmlk.cn/2014/02/12/about-pjax/</loc>
-    
-    <lastmod>2017-11-15T03:07:27.338Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>//htmlk.cn/2012/12/19/a-chrismas-ico/</loc>
-    
-    <lastmod>2017-11-15T03:07:27.337Z</lastmod>
     
   </url>
   
